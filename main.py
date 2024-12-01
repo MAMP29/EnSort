@@ -1,5 +1,6 @@
 import flet as ft
 from components.exec_panel import ExecPanel
+from components.results_panel import ResultsPanel
 from components.sidebar import SideBar
 
 def main(page: ft.Page):
@@ -12,7 +13,7 @@ def main(page: ft.Page):
         ft.Row(
             controls=[
                 SideBar(),
-                ExecPanel(),
+                ResultsPanel(), # O ExecPanel
             ],
             alignment=ft.MainAxisAlignment.START,  # Sidebar al inicio
             spacing=5, # Sin espacio entre sidebar y panel

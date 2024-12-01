@@ -18,7 +18,7 @@ class DownPanel(ft.Container):
             )
         )
         
-        self.is_chip_selected = False
+        #self.is_chip_selected = False
 
         '''self.chip_for_array_structure = ft.Chip(
             label=ft.Text("Array", color=ft.colors.WHITE),
