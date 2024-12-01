@@ -41,17 +41,29 @@ class DownPanel(ft.Container):
             margin=ft.margin.all(5)  # Añade margen externo
         )
 
+
+        def create_decoration_line(bgcolor):
+            return ft.Container(
+                expand=True,
+                bgcolor=bgcolor,
+                border_radius=10,
+                border=ft.border.all(1, ft.colors.BLACK45),
+                padding=ft.padding.all(2),
+                margin=ft.margin.all(2)
+            )
+
         self.content = ft.Column(
             controls=[
                 ft.Row(
                     controls = [
-                        ft.Container(expand=True),
+                        create_decoration_line("#f5f5dc"),
+                        #ft.Container(expand=True),
                         ft.Container(content=self.structures_to_use, alignment=ft.alignment.center_right),
                     ],
                 ),
 
                 ft.Container(
-                    content=self.execute_button,
+                    content=ft.Row(controls = [self.execute_button,create_decoration_line("#4d869c"),]),
                     alignment=ft.alignment.center_left  # Alinea el botón a la derecha
                 )
             ],
@@ -60,3 +72,5 @@ class DownPanel(ft.Container):
         )
 
         self.padding = ft.padding.all(10)  # Añade padding al contenedor principal
+
+
