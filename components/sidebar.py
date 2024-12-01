@@ -15,7 +15,7 @@ class SideBar(ft.Container):
         self.executions = ft.Container(
             content=ft.Column(
                 controls=[
-                    ft.FilledTonalButton(content=ft.Text("Prueba 1", color=ft.colors.BLACK), color="#eef7ff")
+                    ft.TextButton(content=ft.Text("Prueba 1", color=ft.colors.BLACK))#, color="#eef7ff") # Puede ser un outlined button o un filedtonedbutton
                 ],
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER  # Centra los botones
             ),
