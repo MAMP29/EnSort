@@ -16,15 +16,44 @@ class DownPanel(ft.Container):
                 }
             )
         )
+        
+        self.is_chip_selected = False
 
         self.chip_for_array_structure = ft.Chip(
-            label=ft.Text("Array"),
+            label=ft.Text("Array", color=ft.colors.WHITE),
+            bgcolor="#31393c",
+            disabled_color="#080a0a",
         )
+
+
+
+        # Función para manejar el clic en el chip
+        def on_chip_click(e):
+            # Cambiar el estado de seleccionado
+            self.is_chip_selected = not self.is_chip_selected
+
+            # Actualizar los colores del chip dependiendo de su estado
+            if self.is_chip_selected:
+                self.chip_for_array_structure.bgcolor = "#4d869c"  # Color cuando está seleccionado
+                self.chip_for_array_structure.leading = ft.Icon(ft.Icons.CHECK, color=ft.colors.WHITE)
+            else:
+                self.chip_for_array_structure.bgcolor = "#080a0a"  # Color cuando no está seleccionado
+                self.chip_for_array_structure.label = ft.Text("Array", color=ft.colors.WHITE)
+                self.chip_for_array_structure.leading = None
+
+            # Actualizar la página para reflejar el cambio
+            self.update()
+
+        # Asignar el evento on_click al chip
+        self.chip_for_array_structure.on_click = on_chip_click
+
+
+
 
         self.structures_to_use = ft.Container(
             content=ft.Row(
                 controls=[
-                    ft.Text("Estructura a usar:", color=ft.colors.BLACK, weight="bold", size=20),
+                    ft.Text("Estructuras a usar:", color=ft.colors.BLACK, weight="bold", size=20),
                     ft.Row(
                         controls=[
                             self.chip_for_array_structure,

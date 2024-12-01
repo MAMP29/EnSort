@@ -24,7 +24,7 @@ class SideBar(ft.Container):
 
         self.content = ft.Column(
             controls=[
-                ft.Text("Mis ejecuciones", text_align=ft.TextAlign.CENTER),
+                ft.Text("Mis ejecuciones", text_align=ft.TextAlign.CENTER, width='bold', size=20),
                 self.executions,
                 self.add_button,
             ],
