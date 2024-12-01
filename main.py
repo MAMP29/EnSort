@@ -1,11 +1,11 @@
 import flet as ft
-from components.mainpage import MainPage
+from components.excec_panel import ExecPanel
 
 def main(page: ft.Page):
     page.title = "EnSort"
 
     page.add(
-        MainPage(page)
+        ExecPanel(page)
     )
 
 ft.app(target=main)

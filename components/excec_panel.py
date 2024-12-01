@@ -1,6 +1,6 @@
 import flet as ft
 
-class MainPage(ft.Container):
+class ExecPanel(ft.Container):
     def __init__(self, page):
         super().__init__()
         self.page = page

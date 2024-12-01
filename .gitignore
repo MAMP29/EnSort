@@ -1,2 +1,7 @@
 components/__pycache__/__init__.cpython-312.pyc
 components/__pycache__/mainpage.cpython-312.pyc
+components/__pycache__/excec_panel.cpython-312.pyc
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
