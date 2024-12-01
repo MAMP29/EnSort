@@ -1,4 +1,5 @@
 import flet as ft
+from subcomponents.custom_chip import CustomChip
 
 class DownPanel(ft.Container):
     def __init__(self):
@@ -19,16 +20,16 @@ class DownPanel(ft.Container):
         
         self.is_chip_selected = False
 
-        self.chip_for_array_structure = ft.Chip(
+        '''self.chip_for_array_structure = ft.Chip(
             label=ft.Text("Array", color=ft.colors.WHITE),
             bgcolor="#31393c",
             disabled_color="#080a0a",
-        )
+        )'''
 
-
+        self.array_chip = CustomChip(label="Array", initial_color="#31393c", selected_color="#4d869c")
 
         # Función para manejar el clic en el chip
-        def on_chip_click(e):
+        '''def on_chip_click(e):
             # Cambiar el estado de seleccionado
             self.is_chip_selected = not self.is_chip_selected
 
@@ -37,7 +38,7 @@ class DownPanel(ft.Container):
                 self.chip_for_array_structure.bgcolor = "#4d869c"  # Color cuando está seleccionado
                 self.chip_for_array_structure.leading = ft.Icon(ft.Icons.CHECK, color=ft.colors.WHITE)
             else:
-                self.chip_for_array_structure.bgcolor = "#080a0a"  # Color cuando no está seleccionado
+                self.chip_for_array_structure.bgcolor = "#31393c"  # Color cuando no está seleccionado
                 self.chip_for_array_structure.label = ft.Text("Array", color=ft.colors.WHITE)
                 self.chip_for_array_structure.leading = None
 
@@ -45,7 +46,7 @@ class DownPanel(ft.Container):
             self.update()
 
         # Asignar el evento on_click al chip
-        self.chip_for_array_structure.on_click = on_chip_click
+        self.chip_for_array_structure.on_click = on_chip_click'''
 
 
 
@@ -56,7 +57,7 @@ class DownPanel(ft.Container):
                     ft.Text("Estructuras a usar:", color=ft.colors.BLACK, weight="bold", size=20),
                     ft.Row(
                         controls=[
-                            self.chip_for_array_structure,
+                            self.array_chip,
                         ]
                             
                     )
