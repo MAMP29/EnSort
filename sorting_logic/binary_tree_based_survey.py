@@ -130,11 +130,12 @@ class BSTBasedSurvey():
 
             # Recorrido de temas
             salida.append("Resultados de la encuesta")
+            salida.append("")
             temas_en_orden = self.arbol_temas_preguntas.recorrido_en_orden(descendente=True)
             for idx, (clave_tema, bst_preguntas_tema) in enumerate(temas_en_orden, start=1):
                 promedio_opinion_tema, promedio_experticia_tema, _, tema_id = clave_tema
                 salida.append(f"[{promedio_opinion_tema}] Tema {tema_id}:")
-                preguntas_en_orden = bst_preguntas_tema.recorrido_en_orden()
+                preguntas_en_orden = bst_preguntas_tema.recorrido_en_orden(descendente=True)
                 for idx_pregunta, (clave_pregunta, ids_encuestados) in enumerate(preguntas_en_orden, start=1):
                     promedio_experticia_pregunta, num_encuestados, promedio_opinion_pregunta = clave_pregunta
                     salida.append(f"  [{promedio_opinion_pregunta}] Pregunta {tema_id}.{idx_pregunta}: {ids_encuestados}")
@@ -146,7 +147,7 @@ class BSTBasedSurvey():
             participantes_en_orden = self.arbol_participantes.recorrido_en_orden(descendente=True)
             for idx, (clave_participante, nombre) in enumerate(participantes_en_orden, start=1):
                 experticia, idp, opinion = clave_participante
-                salida.append(f"({idp}, Nombre:'{nombre}', Experticia:{experticia}, Opinión:{opinion})")
+                salida.append(f" ({idp}, Nombre:'{nombre}', Experticia:{experticia}, Opinión:{opinion})")
             salida.append("")
 
             # Resultados adicionales
@@ -163,10 +164,10 @@ class BSTBasedSurvey():
             pregunta_mayor_experticia = max(preguntas, key=lambda x: x[0][0])
             pregunta_menor_experticia = min(preguntas, key=lambda x: x[0][0])
 
-            salida.append(f"Pregunta con mayor promedio de opinión: [{pregunta_mayor_opinion[0][2]}] Pregunta {pregunta_mayor_opinion[1]}.{pregunta_mayor_opinion[2]}")
-            salida.append(f"Pregunta con menor promedio de opinión: [{pregunta_menor_opinion[0][2]}] Pregunta {pregunta_menor_opinion[1]}.{pregunta_menor_opinion[2]}")
-            salida.append(f"Pregunta con mayor promedio de experticia: [{pregunta_mayor_experticia[0][0]}] Pregunta {pregunta_mayor_experticia[1]}.{pregunta_mayor_experticia[2]}")
-            salida.append(f"Pregunta con menor promedio de experticia: [{pregunta_menor_experticia[0][0]}] Pregunta {pregunta_menor_experticia[1]}.{pregunta_menor_experticia[2]}")
+            salida.append(f" Pregunta con mayor promedio de opinión: [{pregunta_mayor_opinion[0][2]}] Pregunta {pregunta_mayor_opinion[1]}.{pregunta_mayor_opinion[2]}")
+            salida.append(f" Pregunta con menor promedio de opinión: [{pregunta_menor_opinion[0][2]}] Pregunta {pregunta_menor_opinion[1]}.{pregunta_menor_opinion[2]}")
+            salida.append(f" Pregunta con mayor promedio de experticia: [{pregunta_mayor_experticia[0][0]}] Pregunta {pregunta_mayor_experticia[1]}.{pregunta_mayor_experticia[2]}")
+            salida.append(f" Pregunta con menor promedio de experticia: [{pregunta_menor_experticia[0][0]}] Pregunta {pregunta_menor_experticia[1]}.{pregunta_menor_experticia[2]}")
 
             # Encuestado con mayor y menor opinión/experticia
             encuestado_mayor_opinion = max(participantes_en_orden, key=lambda x: x[0][2])
@@ -177,24 +178,24 @@ class BSTBasedSurvey():
             # Formatear encuestados en el formato solicitado con la ID real
             formato_encuestado = lambda clave, nombre: f"({clave[1]}, Nombre:'{nombre}', Experticia:{clave[0]}, Opinión:{clave[2]})"
 
-            salida.append(f"Encuestado con mayor opinión: {formato_encuestado(encuestado_mayor_opinion[0], encuestado_mayor_opinion[1])}")
-            salida.append(f"Encuestado con menor opinión: {formato_encuestado(encuestado_menor_opinion[0], encuestado_menor_opinion[1])}")
-            salida.append(f"Encuestado con mayor experticia: {formato_encuestado(encuestado_mayor_experticia[0], encuestado_mayor_experticia[1])}")
-            salida.append(f"Encuestado con menor experticia: {formato_encuestado(encuestado_menor_experticia[0], encuestado_menor_experticia[1])}")
+            salida.append(f" Encuestado con mayor opinión: {formato_encuestado(encuestado_mayor_opinion[0], encuestado_mayor_opinion[1])}")
+            salida.append(f" Encuestado con menor opinión: {formato_encuestado(encuestado_menor_opinion[0], encuestado_menor_opinion[1])}")
+            salida.append(f" Encuestado con mayor experticia: {formato_encuestado(encuestado_mayor_experticia[0], encuestado_mayor_experticia[1])}")
+            salida.append(f" Encuestado con menor experticia: {formato_encuestado(encuestado_menor_experticia[0], encuestado_menor_experticia[1])}")
 
             # Promedios generales
             promedio_experticia_encuestados = round(sum(x[0][0] for x in participantes_en_orden) / len(participantes_en_orden), 2)
             promedio_opinion_encuestados = round(sum(x[0][2] for x in participantes_en_orden) / len(participantes_en_orden), 2)
 
-            salida.append(f"Promedio de experticia de los encuestados: {promedio_experticia_encuestados}")
-            salida.append(f"Promedio de opinión de los encuestados: {promedio_opinion_encuestados}")
+            salida.append(f" Promedio de experticia de los encuestados: {promedio_experticia_encuestados}")
+            salida.append(f" Promedio de opinión de los encuestados: {promedio_opinion_encuestados}")
 
             return "\n".join(salida)
         
 
 if __name__ == "__main__":
     algo_arbol = BSTBasedSurvey()
-    archivo_prueba = "testsfiles/entrada_prueba_1.txt"
+    archivo_prueba = "testsfiles/entrada_prueba_3.txt"
     
     algo_arbol.cargar_datos(archivo_prueba)
     #print("----------------------------------------------------")
