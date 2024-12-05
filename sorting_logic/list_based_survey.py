@@ -1,9 +1,10 @@
 from algorithms.mergesort import merge_sort
 
-# Implementación basada en listas-diccionarios
+# Implementación basada en listas-diccionarios, como es una estructura propia de python no tiene una implementación directa en datastructures
 class ListBasedSurvey:
     def __init__(self):
-        self.questions = []
+        self.participantes = []
+        self.temas_preguntas = []
 
     def cargar_datos(self, archivo):
         # Leer el archivo y separar secciones
@@ -51,6 +52,8 @@ class ListBasedSurvey:
                 "preguntas": preguntas_tema
             })
         
+        self.participantes = participantes
+        self.preguntas = preguntas
         return participantes, preguntas
     
     def calcular_promedios(self, preguntas, criterio):
@@ -190,4 +193,4 @@ if __name__ == '__main__':
     # Generar salida
     salida = algo_lista.generar_salida(participantes, temas_ordenados)
 
-    print(salida)
+    print("-------------------------------------")
