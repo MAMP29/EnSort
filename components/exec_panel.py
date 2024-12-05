@@ -8,7 +8,9 @@ class ExecPanel(ft.Container):
 
         self.selected_file = ft.Text()
         self.file_picker = file_picker #ft.FilePicker(on_result=self.pick_file_result)
-        self.selected_file = None  # Variable para guardar la ruta del archivo
+        self.selected_file = None  # Variable para guardar el contenido del archivo
+
+        self.down_panel = DownPanel()
 
         self.button_files = ft.ElevatedButton(
             text="Seleccione el archivo",
@@ -20,7 +22,7 @@ class ExecPanel(ft.Container):
             controls=[
                 ft.Text("Panel de Ejecuciones"),
                 self.button_files,
-                DownPanel(),
+                self.down_panel,
             ],
             alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
             horizontal_alignment=ft.MainAxisAlignment.CENTER
@@ -34,13 +36,11 @@ class ExecPanel(ft.Container):
         self.padding = 10
         self.expand = True
 
-    def set_selected_file(self, file_content):
+    def set_selected_file(self, file_content, nombre_archivo):
         # Pasar el contenido del archivo a BSTBasedSurvey
-        self.selected_file = file_content
-        self.cargar_datos(file_content)
+        self.button_files.text = nombre_archivo
+        self.button_files.update()
+        self.down_panel.set_content(file_content)
 
         # Llamar a cargar_datos de BSTBasedSurvey
         #self.bst_survey.cargar_datos(self.selected_file_path)
-    
-    def cargar_datos(self, file_content):
-        print(file_content)
