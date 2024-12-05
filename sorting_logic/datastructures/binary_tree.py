@@ -62,7 +62,7 @@ class ArbolBinarioBusqueda:
             return self._buscar_recursivo(nodo.derecha, clave)
         
 
-    # Implementación para claves múltiples
+    # Implementación para una clave con valores múltiples
     def buscar_por_valor_en_clave(self, valor, indice):
         return self._buscar_por_valor_en_clave_recursivo(self.raiz, valor, indice)
 
@@ -78,7 +78,56 @@ class ArbolBinarioBusqueda:
         else:
             return self._buscar_por_valor_en_clave_recursivo(nodo.derecha, valor, indice)
         
+    # Busca en todas las ramas la clave que tenga el valor en la posición 'indice' igual a 'valor', el motivo de buscar en todas las ramas es porque si
+    # se necesita algo como la ID, podría no encontrarla considerando que la experticia es la clave principal
+    def buscar_clave_general(self, valor, indice):
+        return self.buscar_clave_general_recursivo(self.raiz, valor, indice)
+
+    def buscar_clave_general_recursivo(self, nodo, valor, indice):
+        if nodo is None:
+            return None
         
+        # Comparar el valor en la posición 'indice' de la clave
+        if valor == nodo.clave[indice]:
+            return nodo.clave
+        
+        # Recursión para los subárboles
+        resultado_izq = None
+        resultado_der = None
+        
+        if nodo.izquierda:
+            resultado_izq = self.buscar_clave_general_recursivo(nodo.izquierda, valor, indice)
+        
+        if nodo.derecha:
+            resultado_der = self.buscar_clave_general_recursivo(nodo.derecha, valor, indice)
+        
+        return resultado_izq or resultado_der
+
+
+    # Busca en todas las ramas la clave que tenga el valor en la posición 'indice' igual a 'valor', el motivo de buscar en todas las ramas es porque si
+    # se necesita algo como la ID, podría no encontrarla considerando que la experticia es la clave principal
+    def buscar_valor_general(self, valor, indice):
+        return self.buscar_valor_general_recursivo(self.raiz, valor, indice)
+
+    def buscar_valor_general_recursivo(self, nodo, valor, indice):
+        if nodo is None:
+            return None
+        
+        # Comparar el valor en la posición 'indice' de la clave
+        if valor == nodo.clave[indice]:
+            return nodo.datos
+        
+        # Recursión para los subárboles
+        resultado_izq = None
+        resultado_der = None
+        
+        if nodo.izquierda:
+            resultado_izq = self.buscar_valor_general_recursivo(nodo.izquierda, valor, indice)
+        
+        if nodo.derecha:
+            resultado_der = self.buscar_valor_general_recursivo(nodo.derecha, valor, indice)
+        
+        return resultado_izq or resultado_der
 
 if __name__ == "__main__":
     # Crear un árbol binario de búsqueda
@@ -110,6 +159,7 @@ if __name__ == "__main__":
 
     print("------------------------------------------------------")
 
-    id_busqueda = arbol.buscar_por_valor_en_clave(8, 1)
+    #id_busqueda = arbol.buscar_por_valor_en_clave(8, 1)
+    id_busqueda = arbol.buscar_clave_general(8, 1)
 
     print(id_busqueda)
