@@ -1,4 +1,4 @@
-from algorithms.mergesort import merge_sort
+from sorting_logic.algorithms.mergesort import merge_sort
 
 # Implementación basada en listas-diccionarios, como es una estructura propia de python no tiene una implementación directa en datastructures
 class ListBasedSurvey:
@@ -6,10 +6,26 @@ class ListBasedSurvey:
         self.participantes = []
         self.temas_preguntas = []
 
-    def cargar_datos(self, archivo):
+    def ejecutar_proceso(self, contenido, con_archivo=False):
+        
+        self.cargar_datos(contenido, con_archivo)
+
+        #print("AGUACATES ---------------------------------------------------------")
+       # print(self.participantes)
+
+        #print(self.temas_preguntas)
+
+        self.temas_preguntas = self.procesar_y_ordenar(self.temas_preguntas)
+
+        return self.generar_salida(self.participantes, self.temas_preguntas)
+        
+
+    def cargar_datos(self, contenido, con_archivo):
         # Leer el archivo y separar secciones
-        with open(archivo, 'r') as f:
-            contenido = f.read().strip()
+
+        if con_archivo:
+            with open(contenido, 'r') as f:
+                contenido = f.read().strip()
         
         # Separar secciones por doble salto de línea
         secciones = contenido.split("\n\n")
@@ -18,6 +34,17 @@ class ListBasedSurvey:
         participantes_raw = secciones[0].split("\n")
         print("-----------------------------------------------")
         print(participantes_raw)
+
+        self.participantes = self.cargar_participantes(participantes_raw)
+        
+        print("-------------------------------------------")
+        print(secciones[1:])
+        # Procesar preguntas y temas
+
+        self.temas_preguntas = self.cargar_temas_preguntas(secciones[1:], self.participantes)
+
+
+    def cargar_participantes(self, participantes_raw):
         participantes = []
         for p in participantes_raw:
             nombre, detalles = p.split(", Experticia:")
@@ -33,12 +60,12 @@ class ListBasedSurvey:
                 "experticia": experticia,
                 "opinion": opinion
             })
-        
-        print("-------------------------------------------")
-        print(secciones[1:])
-        # Procesar preguntas y temas
+
+        return participantes
+
+    def cargar_temas_preguntas(self, temas_preguntas_raw, participantes):
         preguntas = []
-        for i, preguntas_raw in enumerate(secciones[1:], start=1):
+        for i, preguntas_raw in enumerate(temas_preguntas_raw, start=1):
             preguntas_tema = []
             preguntas_ids = preguntas_raw.strip().split("\n")
             for j, ids in enumerate(preguntas_ids, start=1):
@@ -51,11 +78,9 @@ class ListBasedSurvey:
                 "tema_id": i,
                 "preguntas": preguntas_tema
             })
-        
-        self.participantes = participantes
-        self.preguntas = preguntas
-        return participantes, preguntas
-    
+
+        return preguntas
+
     def calcular_promedios(self, preguntas, criterio):
         """Calcula el promedio de un criterio (opinion o experticia) para cada pregunta."""
         for pregunta in preguntas:
@@ -87,6 +112,9 @@ class ListBasedSurvey:
     def generar_salida(self, participantes, temas):
         """Genera el formato de salida requerido."""
         salida = []
+
+        salida.append("Resultados de la encuesta:")
+        salida.append("")
         
         # Procesar temas
         for tema in temas:
@@ -185,12 +213,14 @@ class ListBasedSurvey:
 if __name__ == '__main__':
     algo_lista = ListBasedSurvey()
     archivo_prueba = "testsfiles/entrada_prueba_1.txt"
-    participantes, temas = algo_lista.cargar_datos(archivo_prueba)
+    #participantes, temas = algo_lista.cargar_datos(archivo_prueba)
 
     # Ordenar preguntas y temas
-    temas_ordenados = algo_lista.procesar_y_ordenar(temas, criterio_orden="opinion")
+    #temas_ordenados = algo_lista.procesar_y_ordenar(temas, criterio_orden="opinion")
 
     # Generar salida
-    salida = algo_lista.generar_salida(participantes, temas_ordenados)
+    salida = algo_lista.ejecutar_proceso(archivo_prueba, con_archivo=True)
+
+    print(salida)
 
     print("-------------------------------------")

@@ -1,5 +1,7 @@
 import flet as ft
 from subcomponents.custom_chip import CustomChip
+from sorting_logic.list_based_survey import ListBasedSurvey
+from sorting_logic.binary_tree_based_survey import BSTBasedSurvey
 
 class DownPanel(ft.Container):
     def __init__(self):
@@ -8,6 +10,9 @@ class DownPanel(ft.Container):
         self.bgcolor = self.color_bg
 
         self.file_content = None
+
+        self.list_dict_based_survey = ListBasedSurvey()
+        self.bst_based_survey = BSTBasedSurvey()
 
         #self.expand = True
         self.execute_button = ft.ElevatedButton(
@@ -83,19 +88,34 @@ class DownPanel(ft.Container):
         self.file_content = file_content
         print(file_content)
 
-    def button_execute_mode(self):
+    def button_execution_mode(self):
         self.execute_button.disabled = True
+        self.execute_button.bgcolor = "#435860"
         self.execute_button.content = ft.Text("Ejecutando...", weight="bold", color=ft.colors.WHITE, size=20)
         self.execute_button.update()
 
+    def button_normal_mode(self):
+        self.execute_button.disabled = False
+        self.execute_button.bgcolor = "#4d869c"
+        self.execute_button.content = ft.Text("Ejecutar", weight="bold", color=ft.colors.WHITE, size=20)
+        self.execute_button.update()
+
     def execute_sorting(self, e):
-       # if self.file_content is not None:
-            self.button_execute_mode()
+        if self.file_content is not None:
+            self.button_execution_mode()
             print("List-dict esta: ", self.list_dict_chip.is_selected)
             print("BST esta: ", self.binary_tree_chip.is_selected)
             if self.list_dict_chip.is_selected == True:
                 print("Ejecutando por list-array")
+                salida_lst = self.list_dict_based_survey.ejecutar_proceso(self.file_content)
+                print(salida_lst)
+                print("---------------------------------------------------------")
 
             if self.binary_tree_chip.is_selected == True:
                 print("Ejecutando por BST")
+                salida_bst = self.bst_based_survey.ejecutar_proceso(self.file_content)
+                print(salida_bst)
+                print("---------------------------------------------------------")
+            
+            self.button_normal_mode()
 

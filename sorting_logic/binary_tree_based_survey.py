@@ -1,5 +1,6 @@
-from datastructures.binary_tree import ArbolBinarioBusqueda
-from algorithms.mergesort import merge_sort
+from sorting_logic.datastructures.binary_tree import ArbolBinarioBusqueda
+from sorting_logic.algorithms.mergesort import merge_sort
+
 # Usa tuplas para almacenar valores internos, el recorrido si se almacena en listas
 class BSTBasedSurvey():
     def __init__(self):
@@ -7,10 +8,18 @@ class BSTBasedSurvey():
         self.arbol_temas_preguntas = ArbolBinarioBusqueda()
         #self.arbol_preguntas = ArbolBinarioBusqueda()
 
-    def cargar_datos(self, archivo):
+    def ejecutar_proceso(self, contenido, con_archivo=False):
 
-        with open(archivo, 'r') as f:
-            contenido = f.read().strip()
+        self.cargar_datos(contenido, con_archivo)
+
+        return self.generar_resultados()
+
+
+    def cargar_datos(self, contenido, con_archivo):
+
+        if con_archivo:
+            with open(contenido, 'r') as f:
+                contenido = f.read().strip()
 
         secciones = contenido.split("\n\n")
 
@@ -195,8 +204,9 @@ class BSTBasedSurvey():
 
 if __name__ == "__main__":
     algo_arbol = BSTBasedSurvey()
-    archivo_prueba = "testsfiles/entrada_prueba_3.txt"
+    archivo_prueba = "testsfiles/entrada_prueba_1.txt"
     
+    '''
     algo_arbol.cargar_datos(archivo_prueba)
     #print("----------------------------------------------------")
     resultado_participantes = algo_arbol.arbol_participantes.recorrido_en_orden(descendente=True)
@@ -211,7 +221,10 @@ if __name__ == "__main__":
     print(arbol_preguntas.recorrido_en_orden())
 
     resultado = algo_arbol.generar_resultados()
-
+    
     print("----------------------------------------------------")
     print(resultado)
+    '''
 
+    resultado_completo = algo_arbol.ejecutar_proceso(archivo_prueba, con_archivo=True)
+    print(resultado_completo)
