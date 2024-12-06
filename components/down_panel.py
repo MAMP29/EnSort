@@ -1,11 +1,19 @@
 import flet as ft
 from subcomponents.custom_chip import CustomChip
+from sorting_logic.list_based_survey import ListBasedSurvey
+from sorting_logic.binary_tree_based_survey import BSTBasedSurvey
 
 class DownPanel(ft.Container):
     def __init__(self):
         super().__init__()
         self.color_bg = "#7ab2b2"
         self.bgcolor = self.color_bg
+
+        self.file_content = None
+
+        self.list_dict_based_survey = ListBasedSurvey()
+        self.bst_based_survey = BSTBasedSurvey()
+
         #self.expand = True
         self.execute_button = ft.ElevatedButton(
             content=ft.Text("Ejecutar", weight="bold", color=ft.colors.WHITE, size=20), 
@@ -15,40 +23,12 @@ class DownPanel(ft.Container):
                 padding={
                     ft.MaterialState.DEFAULT: ft.padding.all(15)  # Añade padding al botón
                 }
-            )
+            ),
+            on_click=self.execute_sorting,
         )
         
-        #self.is_chip_selected = False
-
-        '''self.chip_for_array_structure = ft.Chip(
-            label=ft.Text("Array", color=ft.colors.WHITE),
-            bgcolor="#31393c",
-            disabled_color="#080a0a",
-        )'''
-
-        self.array_chip = CustomChip(label="Array", initial_color="#31393c", selected_color="#4d869c")
-
-        # Función para manejar el clic en el chip
-        '''def on_chip_click(e):
-            # Cambiar el estado de seleccionado
-            self.is_chip_selected = not self.is_chip_selected
-
-            # Actualizar los colores del chip dependiendo de su estado
-            if self.is_chip_selected:
-                self.chip_for_array_structure.bgcolor = "#4d869c"  # Color cuando está seleccionado
-                self.chip_for_array_structure.leading = ft.Icon(ft.Icons.CHECK, color=ft.colors.WHITE)
-            else:
-                self.chip_for_array_structure.bgcolor = "#31393c"  # Color cuando no está seleccionado
-                self.chip_for_array_structure.label = ft.Text("Array", color=ft.colors.WHITE)
-                self.chip_for_array_structure.leading = None
-
-            # Actualizar la página para reflejar el cambio
-            self.update()
-
-        # Asignar el evento on_click al chip
-        self.chip_for_array_structure.on_click = on_chip_click'''
-
-
+        self.list_dict_chip = CustomChip(label="List-Dict", initial_color="#31393c", selected_color="#4d869c")
+        self.binary_tree_chip = CustomChip(label="BST", initial_color="#af4500", selected_color="#ee9a63")
 
 
         self.structures_to_use = ft.Container(
@@ -57,7 +37,8 @@ class DownPanel(ft.Container):
                     ft.Text("Estructuras a usar:", color=ft.colors.BLACK, weight="bold", size=20),
                     ft.Row(
                         controls=[
-                            self.array_chip,
+                            self.list_dict_chip,
+                            self.binary_tree_chip
                         ]
                             
                     )
@@ -103,4 +84,38 @@ class DownPanel(ft.Container):
 
         self.padding = ft.padding.all(10)  # Añade padding al contenedor principal
 
+    def set_content(self, file_content):
+        self.file_content = file_content
+        print(file_content)
+
+    def button_execution_mode(self):
+        self.execute_button.disabled = True
+        self.execute_button.bgcolor = "#435860"
+        self.execute_button.content = ft.Text("Ejecutando...", weight="bold", color=ft.colors.WHITE, size=20)
+        self.execute_button.update()
+
+    def button_normal_mode(self):
+        self.execute_button.disabled = False
+        self.execute_button.bgcolor = "#4d869c"
+        self.execute_button.content = ft.Text("Ejecutar", weight="bold", color=ft.colors.WHITE, size=20)
+        self.execute_button.update()
+
+    def execute_sorting(self, e):
+        if self.file_content is not None:
+            self.button_execution_mode()
+            print("List-dict esta: ", self.list_dict_chip.is_selected)
+            print("BST esta: ", self.binary_tree_chip.is_selected)
+            if self.list_dict_chip.is_selected == True:
+                print("Ejecutando por list-array")
+                salida_lst = self.list_dict_based_survey.ejecutar_proceso(self.file_content)
+                print(salida_lst)
+                print("---------------------------------------------------------")
+
+            if self.binary_tree_chip.is_selected == True:
+                print("Ejecutando por BST")
+                salida_bst = self.bst_based_survey.ejecutar_proceso(self.file_content)
+                print(salida_bst)
+                print("---------------------------------------------------------")
+            
+            self.button_normal_mode()
 

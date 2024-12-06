@@ -6,24 +6,29 @@ class CustomChip(ft.Chip):
 
         self.initial_color = initial_color
         self.selected_color = selected_color
-        self.is_selected = False
+        self._is_selected = False
+        
+        self.on_click = self.toggle_selection
+
+    @property
+    def is_selected(self):
+        return self._is_selected
 
 
         # Función para manejar el clic en el chip
-        def on_chip_click(e):
-            # Cambiar el estado de seleccionado
-            self.is_selected = not self.is_selected
+    def toggle_selection(self, e):
+        # Cambiar el estado de seleccionado            
+        self._is_selected = not self._is_selected
 
-            # Actualizar los colores del chip dependiendo de su estado
-            if self.is_selected:
-                self.bgcolor = self.selected_color   # Color cuando está seleccionado
-                self.leading = ft.Icon(ft.Icons.CHECK, color=ft.colors.WHITE)
-            else:
-                self.bgcolor = self.initial_color  # Color cuando no está seleccionado
-                self.leading = None
+        print(f"Estado actualizado: {self._is_selected}")
 
-            # Actualizar la página para reflejar el cambio
-            self.update()
+        # Actualizar los colores del chip dependiendo de su estado
+        if self.is_selected:
+            self.bgcolor = self.selected_color   # Color cuando está seleccionado
+            self.leading = ft.Icon(ft.Icons.CHECK, color=ft.colors.WHITE)
+        else:
+            self.bgcolor = self.initial_color  # Color cuando no está seleccionado
+            self.leading = None
 
-        
-        self.on_click = on_chip_click
+        # Actualizar la página para reflejar el cambio
+        self.update()
