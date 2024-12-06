@@ -40,7 +40,7 @@ class ExecPanel(ft.Container):
         # Pasar el contenido del archivo a BSTBasedSurvey
         self.button_files.text = nombre_archivo
         self.button_files.update()
-        self.down_panel.set_content(file_content)
+        self.down_panel.set_content(file_content, nombre_archivo)
 
         # Llamar a cargar_datos de BSTBasedSurvey
         #self.bst_survey.cargar_datos(self.selected_file_path)
