@@ -30,13 +30,14 @@ def main(page: ft.Page):
     page.overlay.append(file_picker)
     page.update()
 
+    sidebar = SideBar()
     exec_panel = ExecPanel(file_picker)
 
     # Layout general
     page.add(
         ft.Row(
             controls=[
-                SideBar(),
+                sidebar,
                 exec_panel, # O ExecPanel
             ],
             alignment=ft.MainAxisAlignment.START,  # Sidebar al inicio

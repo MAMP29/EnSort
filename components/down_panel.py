@@ -1,10 +1,12 @@
 import flet as ft
 from subcomponents.custom_chip import CustomChip
+from subcomponents.custom_button import ResultExcutionButton
 from sorting_logic.list_based_survey import ListBasedSurvey
 from sorting_logic.binary_tree_based_survey import BSTBasedSurvey
 from sorting_logic.execution import Execution
 import datetime
 import time
+import os
 
 class DownPanel(ft.Container):
     def __init__(self):
@@ -113,7 +115,7 @@ class DownPanel(ft.Container):
         timestamp_id = str(int(time.time()))
         hour_and_date = self.format_timestamp_id(timestamp_id)
 
-        ejecucion = Execution(self.file_name)
+        ejecucion = Execution(os.path.splitext(self.file_name)[0])
         ejecucion.content = self.file_content
 
         # Calcular tamañi entrada y medir tiempos
@@ -177,6 +179,11 @@ class DownPanel(ft.Container):
             }
             
             print("Tiempos de ejecución:", ejecucion.tiempos_de_ejecucion)
+
+            print("NOMbre ejecucion:", ejecucion.nombre)
+            ResultExcutionButton(execution=ejecucion, color=ft.colors.BLACK)
+
+
 
     def format_timestamp_id(self, timestamp_id):
         timestamp_seconds = int(timestamp_id)
