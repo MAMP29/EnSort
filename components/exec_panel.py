@@ -2,15 +2,16 @@ import flet as ft
 from components.down_panel import DownPanel
 
 class ExecPanel(ft.Container):
-    def __init__(self, file_picker):
+    def __init__(self, file_picker, result_manager):
         super().__init__()
         self.color_bg = "#eef7ff"
-
+        #self.sidebar = sidebar
+        self.result_manager = result_manager
         self.selected_file = ft.Text()
         self.file_picker = file_picker #ft.FilePicker(on_result=self.pick_file_result)
         self.selected_file = None  # Variable para guardar el contenido del archivo
 
-        self.down_panel = DownPanel()
+        self.down_panel = DownPanel(self.result_manager)
 
         self.button_files = ft.ElevatedButton(
             text="Seleccione el archivo",

@@ -9,10 +9,12 @@ import time
 import os
 
 class DownPanel(ft.Container):
-    def __init__(self):
+    def __init__(self, results_manager):
         super().__init__()
         self.color_bg = "#7ab2b2"
         self.bgcolor = self.color_bg
+        self.result_manager = results_manager
+#        self.sidebar = sidebar
 
         self.file_name = None
         self.file_content = None
@@ -181,9 +183,11 @@ class DownPanel(ft.Container):
             print("Tiempos de ejecución:", ejecucion.tiempos_de_ejecucion)
 
             print("NOMbre ejecucion:", ejecucion.nombre)
-            ResultExcutionButton(execution=ejecucion, color=ft.colors.BLACK)
+            result_button = ResultExcutionButton(execution=ejecucion, color=ft.colors.BLACK)
 
-
+            #self.page.controls[0].controls[0].add_results_button(result_button)
+            self.result_manager.add_result_button(result_button)
+            
 
     def format_timestamp_id(self, timestamp_id):
         timestamp_seconds = int(timestamp_id)

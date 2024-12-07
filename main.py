@@ -3,6 +3,7 @@ import os
 from components.exec_panel import ExecPanel
 from components.results_panel import ResultsPanel
 from components.sidebar import SideBar
+from utils.results_manager import ResultsManager
 
 # Función para manejar la selección del archivo
 def pick_file_result(e: ft.FilePickerResultEvent, exec_panel):
@@ -19,6 +20,7 @@ def pick_file_result(e: ft.FilePickerResultEvent, exec_panel):
         # Pasar el contenido a ExecPanel para que lo procese
         exec_panel.set_selected_file(file_content, selected_file_name)
 
+results_manager = ResultsManager()
 
 def main(page: ft.Page):
     page.title = "EnSort"
@@ -31,7 +33,10 @@ def main(page: ft.Page):
     page.update()
 
     sidebar = SideBar()
-    exec_panel = ExecPanel(file_picker)
+    exec_panel = ExecPanel(file_picker, results_manager)
+
+    results_manager.set_sidebar(sidebar)
+    results_manager.set_exec_panel(exec_panel)
 
     # Layout general
     page.add(

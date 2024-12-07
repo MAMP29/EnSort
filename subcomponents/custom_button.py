@@ -7,5 +7,5 @@ class ResultExcutionButton(ft.TextButton):
         super().__init__()
         self.execution = execution
         nombre = self.execution.nombre
-        self.text = ft.Text(value=nombre, color=color)
+        self.content = ft.Text(value=nombre, color=color, weight='bold')
         

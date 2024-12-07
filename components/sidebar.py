@@ -13,13 +13,18 @@ class SideBar(ft.Container):
 
         self.add_button = ft.ElevatedButton(content=ft.Text("+", color=ft.colors.BLACK), on_click=lambda e: print("Nueva ejecución"), color="#eef7ff")
         
-        self.executions_buttons_list = []
+        self.executions_column = ft.Column(
+            controls=[],  # Inicialmente vacía
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+            scroll=ft.ScrollMode.AUTO,
+            expand=True
+        )
 
         self.executions = ft.Container(
             content=ft.Column(
                 controls=[
                     ft.TextButton(content=ft.Text("Prueba 1", color=ft.colors.BLACK)),#, color="#eef7ff") # Puede ser un outlined button o un filedtonedbutton
-                    self.create_row(),
+                    self.executions_column,
                 ],
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER  # Centra los botones
             ),
@@ -43,3 +48,10 @@ class SideBar(ft.Container):
             ],
             alignment=ft.MainAxisAlignment.CENTER,
         )
+    
+    def add_results_button(self, execution_button):
+
+        # Añade el botón a la columna de ejecuciones
+        self.executions_column.controls.append(execution_button)
+        # Actualiza la vista
+        self.executions_column.update()
