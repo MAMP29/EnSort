@@ -43,7 +43,7 @@ def main(page: ft.Page):
         ft.Row(
             controls=[
                 sidebar,
-                exec_panel, # O ExecPanel
+                ResultsPanel(None), # O ExecPanel
             ],
             alignment=ft.MainAxisAlignment.START,  # Sidebar al inicio
             spacing=5, # Sin espacio entre sidebar y panel
