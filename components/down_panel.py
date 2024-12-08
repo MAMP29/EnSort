@@ -1,14 +1,22 @@
 import flet as ft
 from subcomponents.custom_chip import CustomChip
+from subcomponents.custom_button import ResultExcutionButton
 from sorting_logic.list_based_survey import ListBasedSurvey
 from sorting_logic.binary_tree_based_survey import BSTBasedSurvey
+from sorting_logic.execution import Execution
+import datetime
+import time
+import os
 
 class DownPanel(ft.Container):
-    def __init__(self):
+    def __init__(self, results_manager):
         super().__init__()
         self.color_bg = "#7ab2b2"
         self.bgcolor = self.color_bg
+        self.result_manager = results_manager
+#        self.sidebar = sidebar
 
+        self.file_name = None
         self.file_content = None
 
         self.list_dict_based_survey = ListBasedSurvey()
@@ -84,7 +92,8 @@ class DownPanel(ft.Container):
 
         self.padding = ft.padding.all(10)  # Añade padding al contenedor principal
 
-    def set_content(self, file_content):
+    def set_content(self, file_content, nombre_archivo):
+        self.file_name = nombre_archivo
         self.file_content = file_content
         print(file_content)
 
@@ -101,21 +110,89 @@ class DownPanel(ft.Container):
         self.execute_button.update()
 
     def execute_sorting(self, e):
+
+        # Tiempo general
+        tiempo_inicio_general = time.time()
+
+        timestamp_id = str(int(time.time()))
+        hour_and_date = self.format_timestamp_id(timestamp_id)
+
+        ejecucion = Execution(os.path.splitext(self.file_name)[0])
+        ejecucion.content = self.file_content
+
+        # Calcular tamañi entrada y medir tiempos
+        tiempo_inicio_tamano = time.time()
+        ejecucion.calcular_tamano_entrada()
+        tiempo_fin_tamano = time.time()
+
+        algoritmos_usados = [] 
+        print(ejecucion.tamano_entrada)
+
         if self.file_content is not None:
             self.button_execution_mode()
             print("List-dict esta: ", self.list_dict_chip.is_selected)
             print("BST esta: ", self.binary_tree_chip.is_selected)
+
+            # Resultados de los algoritmos
+            resultados = {}
+
             if self.list_dict_chip.is_selected == True:
                 print("Ejecutando por list-array")
+                algoritmos_usados.append("Listas-Diccionarios")
+
+                tiempo_inicio_lst = time.time()
                 salida_lst = self.list_dict_based_survey.ejecutar_proceso(self.file_content)
+                tiempo_fin_lst = time.time()
+
+                resultados["Listas-diccionarios"] = {
+                    "salida": salida_lst,
+                    "tiempo_ejecucion": round(tiempo_fin_lst - tiempo_inicio_lst, 4)
+                }
+
                 print(salida_lst)
                 print("---------------------------------------------------------")
 
             if self.binary_tree_chip.is_selected == True:
                 print("Ejecutando por BST")
+                algoritmos_usados.append("Arbol Binario de Busqueda")
+
+                tiempo_inicio_bst = time.time()
                 salida_bst = self.bst_based_survey.ejecutar_proceso(self.file_content)
+                tiempo_fin_bst = time.time()
+
+                resultados["Arbol Binario de Busqueda"] = {
+                    "salida": salida_bst,
+                    "tiempo_ejecucion": round(tiempo_fin_bst - tiempo_inicio_bst, 4)
+                }
+
                 print(salida_bst)
                 print("---------------------------------------------------------")
-            
-            self.button_normal_mode()
 
+            ejecucion.content = resultados
+            
+
+            self.button_normal_mode()
+            tiempo_fin_general = time.time()
+            ejecucion.cargar_datos_ejecucion(timestamp_id, hour_and_date, algoritmos_usados)
+
+             # Agregar tiempos al objeto de ejecución
+            ejecucion.tiempos_de_ejecucion = {
+                "general": round(tiempo_fin_general - tiempo_inicio_general, 4),
+                "tamano_entrada": round(tiempo_fin_tamano - tiempo_inicio_tamano, 4),
+                **{alg: resultados[alg]["tiempo_ejecucion"] for alg in resultados}
+            }
+            
+            print("Tiempos de ejecución:", ejecucion.tiempos_de_ejecucion)
+
+            print("NOMbre ejecucion:", ejecucion.nombre)
+            #result_button = ResultExcutionButton(execution=ejecucion, color=ft.colors.BLACK)
+
+            #self.page.controls[0].controls[0].add_results_button(result_button)
+            self.result_manager.add_result_button(ejecucion)
+            
+
+    def format_timestamp_id(self, timestamp_id):
+        timestamp_seconds = int(timestamp_id)
+        hour_and_date = datetime.datetime.fromtimestamp(timestamp_seconds)
+        format_hour_and_date = hour_and_date.strftime("%Y-%m-%d %H:%M:%S")
+        return format_hour_and_date
