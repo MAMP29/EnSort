@@ -33,7 +33,7 @@ def main(page: ft.Page):
     page.overlay.append(file_picker)
     page.update()
 
-    sidebar = SideBar()
+    sidebar = SideBar(results_manager)
     results_panel = ResultsPanel(None)
     exec_panel = ExecPanel(file_picker, results_manager)
 

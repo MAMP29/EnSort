@@ -44,3 +44,14 @@ class ResultsManager:
             row = self.page.controls[0]
             row.controls[1] = new_results_panel
             self.page.update()
+
+    def load_execution_panel(self, execution_panel=None):
+        # Si no se proporciona un panel específico, usar el panel de ejecución predeterminado
+        panel_to_load = execution_panel or self.exec_panel
+        
+        if self.page and panel_to_load:
+            # Accede a la fila principal
+            row = self.page.controls[0]
+            # Reemplaza el segundo control (índice 1) con el nuevo panel
+            row.controls[1] = panel_to_load
+            self.page.update()

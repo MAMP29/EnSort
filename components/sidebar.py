@@ -1,17 +1,19 @@
 import flet as ft
 
 class SideBar(ft.Container):
-    def __init__(self):
+    def __init__(self, results_manager):
         super().__init__()
         self.color_bg = "#cde8e5"
         self.bgcolor = self.color_bg
+        self.result_manager = results_manager
+        #self.execution_panel = execution_panel
         self.width = 200  # Define el ancho fijo del sidebar
         self.alignment=ft.alignment.center
         #self.expand = expand  # Expande el contenedor verticalmente
         self.rows = [self.create_row()]
         self.rows_column = ft.Column(self.rows, scroll=ft.ScrollMode.AUTO, expand=True)
 
-        self.add_button = ft.ElevatedButton(content=ft.Text("+", color=ft.colors.BLACK), on_click=lambda e: print("Nueva ejecución"), color="#eef7ff")
+        self.add_button = ft.ElevatedButton(content=ft.Text("+", color=ft.colors.BLACK), on_click=self.charge_execution_panel, color="#eef7ff")
         
         self.executions_column = ft.Column(
             controls=[],  # Inicialmente vacía
@@ -55,3 +57,6 @@ class SideBar(ft.Container):
         self.executions_column.controls.append(execution_button)
         # Actualiza la vista
         self.executions_column.update()
+
+    def charge_execution_panel(self, e):
+        self.result_manager.load_execution_panel()
