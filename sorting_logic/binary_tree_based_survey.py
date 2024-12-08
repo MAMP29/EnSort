@@ -83,7 +83,7 @@ class BSTBasedSurvey():
                     preguntas_experticia_promedio_acumm += promedio_experticia
                     
                     # Clave de pregunta: (promedio_experticia, num_encuestados, promedio_opinión)
-                    clave_pregunta = (promedio_experticia, len(ids_ordenados), promedio_opiniones)
+                    clave_pregunta = (promedio_experticia, len(ids_ordenados), promedio_opiniones, pregunta_id)
                     
                     # Dato de pregunta: tupla de IDs de encuestados
                     dato_pregunta = ids_ordenados
@@ -144,10 +144,10 @@ class BSTBasedSurvey():
             for idx, (clave_tema, bst_preguntas_tema) in enumerate(temas_en_orden, start=1):
                 promedio_opinion_tema, promedio_experticia_tema, _, tema_id = clave_tema
                 salida.append(f"[{promedio_opinion_tema}] Tema {tema_id}:")
-                preguntas_en_orden = bst_preguntas_tema.recorrido_en_orden(descendente=True)
+                preguntas_en_orden = bst_preguntas_tema.recorrido_en_orden(descendente=False)
                 for idx_pregunta, (clave_pregunta, ids_encuestados) in enumerate(preguntas_en_orden, start=1):
-                    promedio_experticia_pregunta, num_encuestados, promedio_opinion_pregunta = clave_pregunta
-                    salida.append(f"  [{promedio_opinion_pregunta}] Pregunta {tema_id}.{idx_pregunta}: {ids_encuestados}")
+                    promedio_experticia_pregunta, num_encuestados, promedio_opinion_pregunta, id_pregunta = clave_pregunta
+                    salida.append(f"  [{promedio_opinion_pregunta}] Pregunta {tema_id}.{id_pregunta}: {ids_encuestados}")
 
                 salida.append("")  # Salto de línea entre temas
 

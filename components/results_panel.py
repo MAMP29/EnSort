@@ -1,6 +1,6 @@
-import flet as ft 
+import flet as ft
 from textwrap import dedent
-
+from utils.generate_chart import ChartGenerator
 
 class ResultsPanel(ft.Container):
     def __init__(self, execution):
@@ -8,8 +8,7 @@ class ResultsPanel(ft.Container):
         self.name_execution = ft.Text("Panel de los resultados", size=20, weight="bold")
         self.execution = execution
 
-        self.view_for_content()
-        self.button_text_examiner()
+
 
         # Es necesario mantenerlo así para que no falle
         self.test_message = dedent("""
@@ -25,21 +24,41 @@ class ResultsPanel(ft.Container):
         Selecciona uno de los botones para visualizar los resultados de la ejecución correspondiente.
         """)
 
+        self.btn_lst_dic = ft.ElevatedButton(
+            content=ft.Text("lst-dic result", color=ft.colors.WHITE, weight="bold"), 
+            bgcolor="#707d82", 
+            disabled=True, 
+            on_click=self.change_content_to_lst
+        )
+
+        self.btn_bst = ft.ElevatedButton(
+            content=ft.Text("BST result", color=ft.colors.WHITE, weight="bold"), 
+            bgcolor="#707d82", 
+            disabled=True, 
+            on_click=self.change_content_to_bst
+        )
+
+
         self.buttons_row = ft.Row(
-            controls=[
-                ft.ElevatedButton(content=ft.Text("lst-dic result", color=ft.Colors.WHITE, width="bold"), bgcolor="#4c5559", disabled=True, on_click=self.change_content_to_lst),
-                ft.ElevatedButton(content=ft.Text("BST result", color=ft.Colors.WHITE, width="bold"), bgcolor="#61554e", disabled=True, on_click=self.change_content_to_bst)
-            ],
+            controls=[self.btn_lst_dic, self.btn_bst],
             expand=False
         )
 
+        self.listas_diccionarios = None
+        self.arbol_binario_busqueda = None
+
+        self.obtain_output()
+
+        
+
         self.markdown = ft.Markdown(value=self.test_message, selectable=True)
+        
 
         self.results_text = ft.Container(
             content=ft.Column(
                 controls=[
                     self.buttons_row,
-                    self.markdown,
+                    ft.Column(controls=[self.markdown,],scroll=ft.ScrollMode.AUTO,expand=True)
                 ],
                 alignment=ft.MainAxisAlignment.START,
                 spacing=5,
@@ -52,24 +71,48 @@ class ResultsPanel(ft.Container):
             expand=True,
         )
 
-        self.extra_info_text = ft.Text("Aquí verás información adicional", 
-                                       size=20, 
-                                       weight="bold") if self.execution is None else ft.Text(f"Tiempo general: {self.execution.tiempos_de_ejecucion['general']}", 
-                                                                                             size=20, 
-                                                                                             weight="bold")
 
+
+
+        self.download_listdict_button = ft.ElevatedButton(text="Descargar resultado",
+                                                          icon=ft.icons.DOWNLOAD,
+                                                          tooltip="Se descargará en txt el resultado seleccionado en el markdown",
+                                                          disabled=False,
+                                                          on_click=self.download)
+        
+
+        self.download_result = ft.Row(
+            controls=[
+                self.download_listdict_button,
+            ],
+        )
+
+        self.texto_tiempos = None
+        self.texto_entradas = None
+
+        self.view_for_content()
+        self.extra_info_text = self.extra_info_text_examiner()
 
         self.extra_info = ft.Container(
-            content=self.extra_info_text,
+            content=ft.Column(
+                controls=[
+                    self.extra_info_text, 
+                    ft.Container(expand=True),  # Esto empuja el botón al fondo
+                    self.download_listdict_button
+                ],
+                expand=True,
+                alignment=ft.MainAxisAlignment.END  # Alinea al final de la columna
+            ),
             bgcolor="#e9ecef",
             border=ft.border.all(1, ft.colors.BLACK26),
+            alignment=ft.alignment.center,
             border_radius=10,
             padding=5,
             expand=True,
         )
 
         self.chart_info = ft.Container(
-            content=ft.Text("Podrás visualizar gráficas aquí", size=20, weight="bold"),
+            content=self.download_result,
             bgcolor="#e9ecef",
             border=ft.border.all(1, ft.colors.BLACK26),
             border_radius=10,
@@ -80,11 +123,10 @@ class ResultsPanel(ft.Container):
         self.info_panel = ft.Column(
             controls=[
                 self.extra_info,
-                self.chart_info,
             ],
             spacing=5,
             expand=True,
-            horizontal_alignment=ft.CrossAxisAlignment.STRETCH ,
+            horizontal_alignment=ft.CrossAxisAlignment.END ,
         )
 
         self.principal_result_panel = ft.Row(
@@ -110,38 +152,113 @@ class ResultsPanel(ft.Container):
         self.padding = 10
         self.expand = True
 
+
+    def obtain_output(self):
+        if self.execution is not None:
+            #print("EL CONTENIDO " , self.execution.content)
+            self.listas_diccionarios = self.execution.content.get('Listas-diccionarios', {}).get('salida', None)
+            self.arbol_binario_busqueda = self.execution.content.get('Arbol Binario de Busqueda', {}).get('salida', None)
+            
+
     def view_for_content(self):
         if self.execution is not None:
-            listas_diccionarios = self.execution.content.get('Listas-diccionarios', None)
-            arbol_binario_busqueda = self.execution.content.get('Arbol Binario de Busqueda', None)
+            #print("EL CONTENIDO " , self.execution.content)
 
-            if listas_diccionarios is not None:
-                self.buttons_row.controls[0].disabled = False
+            if self.listas_diccionarios is not None:
+                self.btn_lst_dic.disabled = False
+                self.btn_lst_dic.bgcolor = "#31393c"
 
-            if arbol_binario_busqueda is not None:
-                self.buttons_row.controls[1].disabled = False
+            if self.arbol_binario_busqueda is not None:
+                self.btn_bst.disabled = False
+                self.btn_bst.bgcolor = "#af4500"
+                                
 
     def change_content_to_lst(self, e):
-        self.text_mensaje = self.execution.content['Listas-diccionarios']
-        self.buttons_row.controls[0].bgcolor = "#4d869c"
-        self.buttons_row.controls[1].bgcolor = "#af4500"
-        self.markdown.update()
-    
-    def change_content_to_bst(self, e):
-        self.text_mensaje = self.execution.content['Arbol Binario de Busqueda']
-        self.buttons_row.controls[0].bgcolor = "#31393c"
-        self.buttons_row.controls[1].bgcolor = "#ee9a63"
+        # Actualizar el contenido del markdown
+        print(self.listas_diccionarios)
+
+        formatted_text = self.listas_diccionarios
+
+        formatted_text = formatted_text.replace("\n", "\n\n")
+
+        self.markdown.value = dedent(formatted_text)
+        
+        # Cambiar colores de los botones
+        self.btn_lst_dic.bgcolor = "#4d869c"
+        self.btn_bst.bgcolor = "#707d82"
+        
+        # Actualizar botones y markdown
+        self.btn_lst_dic.update()
+        self.btn_bst.update()
         self.markdown.update()
 
-    def button_text_examiner(self):
+
+    def change_content_to_bst(self, e):
+        # Similar al método anterior, pero con contenido BST
+
+        formatted_text = self.arbol_binario_busqueda
+
+        formatted_text = formatted_text.replace("\n", "\n\n")
+
+        self.markdown.value = dedent(formatted_text)
+
+
+        self.btn_lst_dic.bgcolor = "#707d82"
+        self.btn_bst.bgcolor = "#4d869c"
+        
+        self.btn_lst_dic.update()
+        self.btn_bst.update()
+        self.markdown.update()
+
+    def extra_info_text_examiner(self):
         if self.execution is None:
             return ft.Text("Aquí verás información adicional", size=20, weight="bold")
         else:
-            tiempo_general = self.execution.tiempos_de_ejecucion['general']
-            tiempo_listas_diccionarios = self.execution.algoritmos_usados.get("Listas-diccionarios", {}).get("tiempo_ejecucion", "No consideraste esta implementación")
-            tiempo_bst = self.execution.algoritmos_usados.get("Arbol Binario de Busqueda", {}).get("tiempo_ejecucion", "No consideraste esta implementación")
+            tiempos_ejecucion = self.execution.tiempos_de_ejecucion
+            tiempo_general = tiempos_ejecucion['general']
+            tiempo_tamaño_entrada = tiempos_ejecucion['tamano_entrada']
+            tiempo_listas_diccionarios = self.execution.content.get("Listas-diccionarios", {}).get("tiempo_ejecucion", "No consideraste esta ejecución")
+            tiempo_bst = self.execution.content.get("Arbol Binario de Busqueda", {}).get("tiempo_ejecucion", "No consideraste esta ejecución")
+
+
+            tamano_entrada = self.execution.tamano_entrada
+            tamano_entrada_total = tamano_entrada['total']
+            tamano_entrada_participantes = tamano_entrada['participantes']
+            tamano_entrada_preguntas = tamano_entrada['preguntas']
+            tamano_entrada_temas = tamano_entrada['temas']
+
 
             # Concatenar todo en un solo string
-            texto = f"Tiempo general: {tiempo_general} \n Tiempo listas-diccionarios: {tiempo_listas_diccionarios} \n Tiempo BST: {tiempo_bst}"
+            self.texto_tiempos = f"Tiempo general: {tiempo_general} \n Tiempo tamaño entrada {tiempo_tamaño_entrada} \n Tiempo listas-diccionarios: {tiempo_listas_diccionarios} \n Tiempo BST: {tiempo_bst}"
 
-            return ft.Text(texto, size=20, weight="bold")
+            self.texto_entradas = f"Tamaño total: {tamano_entrada_total} \n Participantes: {tamano_entrada_participantes} \n Preguntas: {tamano_entrada_preguntas} \n Temas: {tamano_entrada_temas}"
+
+
+            return ft.Column(
+                controls=[
+                    ft.Text("Resultados generales", size=20, weight="bold"),
+                    ft.Text(self.texto_tiempos, size=15, weight="bold"),
+                    ft.Text(self.texto_entradas, size=15, weight="bold")
+                ],
+            )
+        
+    def download(self, e):
+        # Descargar el contenido del markdown
+        valor = []
+        print(self.texto_tiempos)
+        print(self.texto_entradas)
+
+        valor.append(str(self.markdown.value))
+        valor.append("")
+        valor.append(str(self.texto_tiempos))
+        valor.append("")
+        valor.append(str(self.texto_entradas))
+
+        print("A DESCARGAR", valor)
+
+        # Convertir la lista en una cadena de texto separada por saltos de línea
+        contenido = "\n".join(valor)
+
+        with open(f"{self.execution.nombre}_{self.execution.id_ejecucion}.txt", "w") as f:
+            f.write(contenido)
+       

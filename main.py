@@ -27,28 +27,33 @@ def main(page: ft.Page):
     page.theme_mode = "light"
     page.bgcolor = "#eef7ff"
 
+
     # Crea una instancia de FilePicker que se compartirá
     file_picker = ft.FilePicker(on_result=lambda e: pick_file_result(e, exec_panel))
     page.overlay.append(file_picker)
     page.update()
 
     sidebar = SideBar()
+    results_panel = ResultsPanel(None)
     exec_panel = ExecPanel(file_picker, results_manager)
 
     results_manager.set_sidebar(sidebar)
     results_manager.set_exec_panel(exec_panel)
+    results_manager.set_results_panel(results_panel)
 
     # Layout general
     page.add(
         ft.Row(
             controls=[
                 sidebar,
-                ResultsPanel(None), # O ExecPanel
+                exec_panel, # O ExecPanel
             ],
             alignment=ft.MainAxisAlignment.START,  # Sidebar al inicio
             spacing=5, # Sin espacio entre sidebar y panel
             expand=True
         )
     )
+
+    results_manager.set_page(page)
 
 ft.app(target=main)

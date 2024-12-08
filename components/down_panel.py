@@ -167,6 +167,8 @@ class DownPanel(ft.Container):
 
                 print(salida_bst)
                 print("---------------------------------------------------------")
+
+            ejecucion.content = resultados
             
 
             self.button_normal_mode()
@@ -183,10 +185,10 @@ class DownPanel(ft.Container):
             print("Tiempos de ejecución:", ejecucion.tiempos_de_ejecucion)
 
             print("NOMbre ejecucion:", ejecucion.nombre)
-            result_button = ResultExcutionButton(execution=ejecucion, color=ft.colors.BLACK)
+            #result_button = ResultExcutionButton(execution=ejecucion, color=ft.colors.BLACK)
 
             #self.page.controls[0].controls[0].add_results_button(result_button)
-            self.result_manager.add_result_button(result_button)
+            self.result_manager.add_result_button(ejecucion)
             
 
     def format_timestamp_id(self, timestamp_id):
