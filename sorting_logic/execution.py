@@ -51,3 +51,5 @@ class Execution:
             "temas": num_temas,
             "total": num_participantes + num_preguntas + num_temas
         }
+
+        return participantes_raw, temas_preguntas_raw

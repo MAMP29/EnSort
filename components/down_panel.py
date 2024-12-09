@@ -122,7 +122,7 @@ class DownPanel(ft.Container):
 
         # Calcular tamañi entrada y medir tiempos
         tiempo_inicio_tamano = time.time()
-        ejecucion.calcular_tamano_entrada()
+        participantes_raw, temas_preguntas_raw = ejecucion.calcular_tamano_entrada()
         tiempo_fin_tamano = time.time()
 
         algoritmos_usados = [] 
@@ -141,7 +141,7 @@ class DownPanel(ft.Container):
                 algoritmos_usados.append("Listas-Diccionarios")
 
                 tiempo_inicio_lst = time.time()
-                salida_lst = self.list_dict_based_survey.ejecutar_proceso(self.file_content)
+                salida_lst = self.list_dict_based_survey.ejecutar_proceso(self.file_content, participantes_raw=participantes_raw, temas_preguntas_raw=temas_preguntas_raw)
                 tiempo_fin_lst = time.time()
 
                 resultados["Listas-diccionarios"] = {
@@ -157,7 +157,7 @@ class DownPanel(ft.Container):
                 algoritmos_usados.append("Arbol Binario de Busqueda")
 
                 tiempo_inicio_bst = time.time()
-                salida_bst = self.bst_based_survey.ejecutar_proceso(self.file_content)
+                salida_bst = self.bst_based_survey.ejecutar_proceso(self.file_content, participantes_raw=participantes_raw, temas_preguntas_raw=temas_preguntas_raw)
                 tiempo_fin_bst = time.time()
 
                 resultados["Arbol Binario de Busqueda"] = {
