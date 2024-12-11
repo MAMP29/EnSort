@@ -120,7 +120,7 @@ class DownPanel(ft.Container):
         ejecucion = Execution(os.path.splitext(self.file_name)[0])
         ejecucion.content = self.file_content
 
-        # Calcular tamañi entrada y medir tiempos
+        # Calcular tamaño entrada y medir tiempos
         tiempo_inicio_tamano = time.time()
         participantes_raw, temas_preguntas_raw = ejecucion.calcular_tamano_entrada()
         tiempo_fin_tamano = time.time()
