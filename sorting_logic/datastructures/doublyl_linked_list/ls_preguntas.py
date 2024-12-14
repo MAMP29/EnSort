@@ -1,5 +1,5 @@
-#from datastructures.doublyl_linked_list.ls_encuestados import ListaEncuestados
-from ls_encuestados import ListaEncuestados
+from datastructures.doublyl_linked_list.ls_encuestados import ListaEncuestados
+#from ls_encuestados import ListaEncuestados
 
 class NodoPregunta:
     def __init__(self, id_pregunta, lista_encuestados):
@@ -239,7 +239,7 @@ class ListaPreguntas:
             promedio_experticia = current_pregunta.calcular_promedio_experticia()
 
             if criterio == 'opinion':
-                if (mayor and promedio_opinion> mayor_valor) or \
+                if (mayor and promedio_opinion > mayor_valor) or \
                  (not mayor and promedio_opinion < mayor_valor):
                      mayor_valor = promedio_opinion
                      pregunta_extrema = current_pregunta
@@ -262,7 +262,7 @@ if __name__ == '__main__':
 
     print("Que mazda")
 
-    '''
+    
     lista_de_encuestados_pregunta_1 = ListaEncuestados()
     lista_de_encuestados_pregunta_1.insertar(10, 2, 7, "Alejandro Torres")
     lista_de_encuestados_pregunta_1.insertar(9, 10, 2, "Daniel Ruiz")
@@ -272,8 +272,8 @@ if __name__ == '__main__':
     lista_de_encuestados_pregunta_2.insertar(5, 9, 7, "Isabella Díaz")
     lista_de_encuestados_pregunta_2.insertar(8, 12, 6, "Lucas Vásquez")
     lista_de_encuestados_pregunta_2.insertar(9, 6, 8, "Sebastián Pérez")
+    
     '''
-
     lista_de_encuestados_pregunta_1 = ListaEncuestados()
     lista_de_encuestados_pregunta_1.insertar(0, 3, 9, "Valentina Rodríguez")
     lista_de_encuestados_pregunta_1.insertar(1, 4, 10, "Juan López")
@@ -283,7 +283,7 @@ if __name__ == '__main__':
     lista_de_encuestados_pregunta_2.insertar(7, 11, 1, "Luciana Sánchez")
     lista_de_encuestados_pregunta_2.insertar(7, 8, 4, "Mateo González")    
     lista_de_encuestados_pregunta_2.insertar(7, 7, 2, "Camila Fernández")
-
+    '''
     #rest = lista_de_encuestados_pregunta_2.merge_sort(criterio="opinion")
 
     #rest.imprimir_izquierda_a_derecha()
@@ -309,6 +309,8 @@ if __name__ == '__main__':
     resultado = pregunta_1.merge_sort()
     
     resultado.ordenar_encuestados_nodos()
+
+    print(resultado.obtener_pregunta_extrema(criterio='opinion',mayor=True).calcular_promedio_opinion())
 
     print(resultado.imprimir_preguntas())
 

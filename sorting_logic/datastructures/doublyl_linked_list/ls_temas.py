@@ -1,6 +1,7 @@
-#from datastructures.doublyl_linked_list.ls_preguntas import ListaPreguntas
-from ls_preguntas import ListaPreguntas
-from ls_encuestados import ListaEncuestados
+from datastructures.doublyl_linked_list.ls_preguntas import ListaPreguntas
+from datastructures.doublyl_linked_list.ls_encuestados import ListaEncuestados
+#from ls_preguntas import ListaPreguntas
+#from ls_encuestados import ListaEncuestados
 
 class NodoTema:
     def __init__(self, id_tema, listaPreguntas):
@@ -43,8 +44,8 @@ class ListaTemas:
         self.cabeza = None
         self.cola = None
 
-    def insertar(self, id_tema, lista_temas):
-        nuevo_nodo = NodoTema(id_tema, lista_temas)
+    def insertar(self, id_tema, listaPreguntas):
+        nuevo_nodo = NodoTema(id_tema, listaPreguntas)
         if self.cabeza is None:
             self.cabeza = nuevo_nodo
             self.cola = nuevo_nodo
@@ -175,36 +176,58 @@ class ListaTemas:
             cantidad += actual.preguntas.contar_encuestados()
             actual = actual.siguiente
         return cantidad
-    
+    '''
     def obtener_extremo(self, criterio, mayor=True):
         actual = self.cabeza  # Empieza con el primer nodo (tema)
         extremo = None
+        id_tema = None
+        pregunta_extrema = None
+
+        # Definimos el método para obtener el valor según el criterio
+        def obtener_valor(pregunta, criterio):
+            if criterio == 'opinion':
+                return pregunta.calcular_promedio_opinion()
+            elif criterio == 'experticia':
+                return pregunta.calcular_promedio_experticia()
+            else:
+                return None
 
         while actual:
             # Obtenemos el extremo de la pregunta actual en el tema
-            pregunta_extrema = actual.preguntas.obtener_pregunta_extrema(criterio, mayor)
+            pregunta_actual = actual.preguntas.obtener_pregunta_extrema(criterio, mayor)
             
-            # Si encontramos un extremo, lo asignamos
-            if pregunta_extrema:
-                # Si no hemos asignado un extremo o si encontramos un mejor extremo según el criterio
-                if extremo is None:
-                    extremo = pregunta_extrema
+            valor = obtener_valor(pregunta_actual, criterio)
+
+            # Si es la primera vez o el valor es mejor según el criterio, actualizamos el extremo
+            if extremo is None:
+                extremo = valor
+                id_tema = actual.id_tema  # Guardamos el id del tema correspondiente
+                pregunta_extrema = pregunta_actual 
+            else:
+                if mayor:
+                    # Si el valor es mayor que el extremo actual, lo actualizamos
+                    if valor > extremo:
+                        extremo = valor
+                        id_tema = actual.id_tema
+                        pregunta_extrema = pregunta_actual
                 else:
-                    # Aquí ya no es necesario comparar de nuevo ya que obtener_pregunta_extrema ya hace la comparación
-                    extremo = pregunta_extrema
+                    # Si el valor es menor que el extremo actual, lo actualizamos
+                    if valor < extremo:
+                        extremo = valor
+                        id_tema = actual.id_tema
+                        pregunta_extrema = pregunta_actual
 
             actual = actual.siguiente
 
-        return extremo
+        return extremo, id_tema, pregunta_extrema.id_pregunta
         
-
     # Método para iterar sobre todos los temas y devolverlos
     def iterar_temas(self):
         actual = self.cabeza
         while actual:
             yield actual  # "yield" permite que iteres sobre los temas sin imprimirlos directamente
             actual = actual.siguiente
-    '''
+
     # Método para imprimir todos los temas
     def imprimir_temas(self):
         actual = self.cabeza
@@ -227,6 +250,7 @@ if __name__ == '__main__':
     lista_de_encuestados_pregunta_2_tema_1.insertar(8, 12, 6, "Lucas Vásquez")
     lista_de_encuestados_pregunta_2_tema_1.insertar(9, 6, 8, "Sebastián Pérez")
 
+    
     lista_de_encuestados_pregunta_1_tema_2 = ListaEncuestados()
     lista_de_encuestados_pregunta_1_tema_2.insertar(0, 3, 9, "Valentina Rodríguez")
     lista_de_encuestados_pregunta_1_tema_2.insertar(1, 4, 10, "Juan López")
@@ -259,4 +283,6 @@ if __name__ == '__main__':
     resultado.ordenar_todos_las_preguntas()
 
     resultado.imprimir_temas()
+
+    print(resultado.obtener_extremo(criterio='opinion',mayor=True))
 
