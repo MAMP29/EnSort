@@ -38,14 +38,21 @@ class ResultsPanel(ft.Container):
             on_click=self.change_content_to_bst
         )
 
+        self.btn_lst_doble = ft.ElevatedButton(
+            content=ft.Text("doubly-list result", color=ft.colors.WHITE, weight="bold"),
+            bgcolor="#707d82",
+            disabled=True,
+            on_click=self.change_content_to_dl
+        )
 
         self.buttons_row = ft.Row(
-            controls=[self.btn_lst_dic, self.btn_bst],
+            controls=[self.btn_lst_dic, self.btn_bst, self.btn_lst_doble],
             expand=False
         )
 
         self.listas_diccionarios = None
         self.arbol_binario_busqueda = None
+        self.listas_doblemente_enlazadas = None
 
         self.obtain_output()
 
@@ -158,6 +165,8 @@ class ResultsPanel(ft.Container):
             #print("EL CONTENIDO " , self.execution.content)
             self.listas_diccionarios = self.execution.content.get('Listas-diccionarios', {}).get('salida', None)
             self.arbol_binario_busqueda = self.execution.content.get('Arbol Binario de Busqueda', {}).get('salida', None)
+            self.listas_doblemente_enlazadas = self.execution.content.get('Listas doblemente enlazadas', {}).get('salida', None)
+            
             
 
     def view_for_content(self):
@@ -171,6 +180,10 @@ class ResultsPanel(ft.Container):
             if self.arbol_binario_busqueda is not None:
                 self.btn_bst.disabled = False
                 self.btn_bst.bgcolor = "#af4500"
+
+            if self.listas_doblemente_enlazadas is not None:
+                self.btn_lst_doble.disabled = False
+                self.btn_lst_doble.bgcolor = "#00a841"
                                 
 
     def change_content_to_lst(self, e):
@@ -186,10 +199,12 @@ class ResultsPanel(ft.Container):
         # Cambiar colores de los botones
         self.btn_lst_dic.bgcolor = "#4d869c"
         self.btn_bst.bgcolor = "#707d82"
+        self.btn_lst_doble.bgcolor = "#707d82"
         
         # Actualizar botones y markdown
         self.btn_lst_dic.update()
         self.btn_bst.update()
+        self.btn_lst_doble.update()
         self.markdown.update()
 
 
@@ -205,9 +220,28 @@ class ResultsPanel(ft.Container):
 
         self.btn_lst_dic.bgcolor = "#707d82"
         self.btn_bst.bgcolor = "#4d869c"
+        self.btn_lst_doble.bgcolor = "#707d82"
         
         self.btn_lst_dic.update()
         self.btn_bst.update()
+        self.btn_lst_doble.update()
+        self.markdown.update()
+
+    def change_content_to_dl(self, e):
+        # Similar al método anterior, pero con contenido DL
+        formatted_text = self.listas_doblemente_enlazadas
+
+        formatted_text = formatted_text.replace("\n", "\n\n")
+
+        self.markdown.value = dedent(formatted_text)
+
+        self.btn_lst_dic.bgcolor = "#707d82"
+        self.btn_bst.bgcolor = "#707d82"
+        self.btn_lst_doble.bgcolor = "#40905f"
+
+        self.btn_lst_dic.update()
+        self.btn_bst.update()
+        self.btn_lst_doble.update()
         self.markdown.update()
 
     def extra_info_text_examiner(self):
@@ -219,6 +253,7 @@ class ResultsPanel(ft.Container):
             tiempo_tamaño_entrada = tiempos_ejecucion['tamano_entrada']
             tiempo_listas_diccionarios = self.execution.content.get("Listas-diccionarios", {}).get("tiempo_ejecucion", "No consideraste esta ejecución")
             tiempo_bst = self.execution.content.get("Arbol Binario de Busqueda", {}).get("tiempo_ejecucion", "No consideraste esta ejecución")
+            tiempo_listas_doblemente_enlazadas = self.execution.content.get("Listas doblemente enlazadas", {}).get("tiempo_ejecucion", "No consideraste esta ejecución")
 
 
             tamano_entrada = self.execution.tamano_entrada
@@ -229,7 +264,7 @@ class ResultsPanel(ft.Container):
 
 
             # Concatenar todo en un solo string
-            self.texto_tiempos = f"Tiempo general: {tiempo_general} \n Tiempo tamaño entrada {tiempo_tamaño_entrada} \n Tiempo listas-diccionarios: {tiempo_listas_diccionarios} \n Tiempo BST: {tiempo_bst}"
+            self.texto_tiempos = f"Tiempo general: {tiempo_general} \n Tiempo tamaño entrada {tiempo_tamaño_entrada} \n Tiempo listas-diccionarios: {tiempo_listas_diccionarios} \n Tiempo BST: {tiempo_bst} \n Tiempo Listas doblemente enlazadas: {tiempo_listas_doblemente_enlazadas}"
 
             self.texto_entradas = f"Tamaño total: {tamano_entrada_total} \n Participantes: {tamano_entrada_participantes} \n Preguntas: {tamano_entrada_preguntas} \n Temas: {tamano_entrada_temas}"
 

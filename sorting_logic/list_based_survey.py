@@ -10,11 +10,6 @@ class ListBasedSurvey:
         
         self.cargar_datos(contenido, con_archivo, participantes_raw, temas_preguntas_raw)
 
-        #print("AGUACATES ---------------------------------------------------------")
-       # print(self.participantes)
-
-        #print(self.temas_preguntas)
-
         self.temas_preguntas = self.procesar_y_ordenar(self.temas_preguntas)
 
         return self.generar_salida(self.participantes, self.temas_preguntas)
@@ -83,7 +78,7 @@ class ListBasedSurvey:
                 "tema_id": i,
                 "preguntas": preguntas_tema
             })
-        #print(temas)
+
         return temas
 
     def calcular_promedios(self, preguntas, criterio):

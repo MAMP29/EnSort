@@ -3,6 +3,7 @@ from subcomponents.custom_chip import CustomChip
 from subcomponents.custom_button import ResultExcutionButton
 from sorting_logic.list_based_survey import ListBasedSurvey
 from sorting_logic.binary_tree_based_survey import BSTBasedSurvey
+from sorting_logic.double_list_based_survey import DoubleListBasedSurvey
 from sorting_logic.execution import Execution
 import datetime
 import time
@@ -21,6 +22,7 @@ class DownPanel(ft.Container):
 
         self.list_dict_based_survey = ListBasedSurvey()
         self.bst_based_survey = BSTBasedSurvey()
+        self.doubly_list_based_survey = DoubleListBasedSurvey()
 
         #self.expand = True
         self.execute_button = ft.ElevatedButton(
@@ -37,7 +39,7 @@ class DownPanel(ft.Container):
         
         self.list_dict_chip = CustomChip(label="List-Dict", initial_color="#31393c", selected_color="#4d869c")
         self.binary_tree_chip = CustomChip(label="BST", initial_color="#af4500", selected_color="#ee9a63")
-
+        self.doubly_list_chip = CustomChip(label="Doubly-Lists", initial_color="#144226", selected_color="#3eaa68")
 
         self.structures_to_use = ft.Container(
             content=ft.Row(
@@ -46,7 +48,8 @@ class DownPanel(ft.Container):
                     ft.Row(
                         controls=[
                             self.list_dict_chip,
-                            self.binary_tree_chip
+                            self.binary_tree_chip,
+                            self.doubly_list_chip,
                         ]
                             
                     )
@@ -120,7 +123,7 @@ class DownPanel(ft.Container):
         ejecucion = Execution(os.path.splitext(self.file_name)[0])
         ejecucion.content = self.file_content
 
-        # Calcular tamañi entrada y medir tiempos
+        # Calcular tamaño entrada y medir tiempos
         tiempo_inicio_tamano = time.time()
         participantes_raw, temas_preguntas_raw = ejecucion.calcular_tamano_entrada()
         tiempo_fin_tamano = time.time()
@@ -132,6 +135,7 @@ class DownPanel(ft.Container):
             self.button_execution_mode()
             print("List-dict esta: ", self.list_dict_chip.is_selected)
             print("BST esta: ", self.binary_tree_chip.is_selected)
+            print("Doubly-list esta: ", self.doubly_list_chip.is_selected)
 
             # Resultados de los algoritmos
             resultados = {}
@@ -167,6 +171,20 @@ class DownPanel(ft.Container):
 
                 print(salida_bst)
                 print("---------------------------------------------------------")
+
+            if self.doubly_list_chip.is_selected == True:
+                print("Ejecutando por Doubly-list")
+                algoritmos_usados.append("Doble-Lista")
+
+                tiempo_inicio_dl = time.time()
+                salida_dl = self.doubly_list_based_survey.ejecutar_proceso(self.file_content, participantes_raw=participantes_raw, temas_preguntas_raw=temas_preguntas_raw)
+                tiempo_fin_dl = time.time()
+
+                resultados["Listas doblemente enlazadas"] = {
+                    "salida": salida_dl,
+                    "tiempo_ejecucion": round(tiempo_fin_dl - tiempo_inicio_dl, 4)
+                }
+
 
             ejecucion.content = resultados
             
