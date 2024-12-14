@@ -22,42 +22,6 @@ class NodoPregunta:
 
     def contar_encuestados(self):
         return self.encuestados.contar_encuestados()
-    '''
-    # Método para calcular el promedio de opiniones de los encuestados de esta pregunta
-    def calcular_promedio_opinion(self):
-        if not self.encuestados.cabeza:
-            return 0
-        total_opinion = 0
-        cantidad = 0
-        current_encuestado = self.encuestados.cabeza
-        while current_encuestado:
-            total_opinion += current_encuestado.valor_opinion
-            cantidad += 1
-            current_encuestado = current_encuestado.siguiente
-        return total_opinion / cantidad if cantidad > 0 else 0
-
-    # Método para calcular el promedio de experticia de los encuestados de esta pregunta
-    def calcular_promedio_experticia(self):
-        if not self.encuestados.cabeza:
-            return 0
-        total_experticia = 0
-        cantidad = 0
-        current_encuestado = self.encuestados.cabeza
-        while current_encuestado:
-            total_experticia += current_encuestado.nivel_experticia
-            cantidad += 1
-            current_encuestado = current_encuestado.siguiente
-        return total_experticia / cantidad if cantidad > 0 else 0
-    
-    # Método para contar los encuestados en todas las preguntas
-    def contar_encuestados(self):
-        cantidad = 0
-        actual_pregunta = self.cabeza
-        while actual_pregunta:
-            cantidad += actual_pregunta.contar_encuestados()  # Llamada al método de NodoPregunta
-            actual_pregunta = actual_pregunta.siguiente
-        return cantidad
-    '''
 
 class ListaPreguntas:
     def __init__(self):

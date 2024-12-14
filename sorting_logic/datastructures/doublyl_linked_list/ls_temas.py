@@ -144,39 +144,6 @@ class ListaTemas:
             actual = actual.siguiente
         return self
 
-    '''
-    def calcular_promedio_opinion(self):
-        if not self.cabeza:
-            return 0
-        total_opinion = 0
-        cantidad = 0
-        actual = self.cabeza
-        while actual:
-            total_opinion += actual.preguntas.calcular_promedio_opinion()
-            cantidad += 1
-            actual = actual.siguiente
-        return total_opinion / cantidad if cantidad > 0 else 0
-
-    def calcular_promedio_experticia(self):
-        if not self.cabeza:
-            return 0
-        total_experticia = 0
-        cantidad = 0
-        actual = self.cabeza
-        while actual:
-            total_experticia += actual.preguntas.calcular_promedio_experticia()
-            cantidad += 1
-            actual = actual.siguiente
-        return total_experticia / cantidad if cantidad > 0 else 0
-
-    def contar_encuestados(self):
-        cantidad = 0
-        actual = self.cabeza
-        while actual:
-            cantidad += actual.preguntas.contar_encuestados()
-            actual = actual.siguiente
-        return cantidad
-    '''
     def obtener_extremo(self, criterio, mayor=True):
         actual = self.cabeza  # Empieza con el primer nodo (tema)
         extremo = None
