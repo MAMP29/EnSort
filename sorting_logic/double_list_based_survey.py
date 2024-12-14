@@ -1,10 +1,10 @@
-#from sorting_logic.datastructures.doublyl_linked_list.ls_encuestados import ListaEncuestados
-#from sorting_logic.datastructures.doublyl_linked_list.ls_preguntas import ListaPreguntas
-#from sorting_logic.datastructures.doublyl_linked_list.ls_temas import ListaTemas
+from sorting_logic.datastructures.doublyl_linked_list.ls_encuestados import ListaEncuestados
+from sorting_logic.datastructures.doublyl_linked_list.ls_preguntas import ListaPreguntas
+from sorting_logic.datastructures.doublyl_linked_list.ls_temas import ListaTemas
 
-from datastructures.doublyl_linked_list.ls_encuestados import ListaEncuestados
-from datastructures.doublyl_linked_list.ls_preguntas import ListaPreguntas
-from datastructures.doublyl_linked_list.ls_temas import ListaTemas
+#from datastructures.doublyl_linked_list.ls_encuestados import ListaEncuestados
+#from datastructures.doublyl_linked_list.ls_preguntas import ListaPreguntas
+#from datastructures.doublyl_linked_list.ls_temas import ListaTemas
 
 class DoubleListBasedSurvey:
     def __init__(self):
@@ -19,6 +19,7 @@ class DoubleListBasedSurvey:
         self.participantes, self.temas = self.ordenar_encuestados_temas_preguntas()
 
         #self.participantes.imprimir_izquierda_a_derecha()
+        #print("IMPRIMIENDO TEMAS")
         #self.temas.imprimir_temas()
 
         return self.generar_resultados()
@@ -42,8 +43,9 @@ class DoubleListBasedSurvey:
             self.temas = self.cargar_temas_preguntas(secciones[1:], self.participantes)
         
         else:
+            #print("lOS TEMAS RAW QUE ME LLEGAN: \n", temas_preguntas_raw)
             self.participantes = self.cargar_participantes(participantes_raw)
-            self.temas_preguntas = self.cargar_temas_preguntas(temas_preguntas_raw, self.participantes)
+            self.temas = self.cargar_temas_preguntas(temas_preguntas_raw, self.participantes)
 
     
     def cargar_participantes(self, participantes_raw):
@@ -67,6 +69,7 @@ class DoubleListBasedSurvey:
         # Crear listas para preguntas y temas
         temas = ListaTemas()
 
+        print("LOS TEMAS RAW QUE ME LLEGAN", temas_preguntas_raw)
         for idx, tp in enumerate(temas_preguntas_raw, start=1):
             # Dividir la línea en tema y pregunta
             preguntas_raw = tp.strip().split("\n")
@@ -101,13 +104,17 @@ class DoubleListBasedSurvey:
 
             #tema_actual.imprimir_izquierda_a_derecha()          
             temas.insertar(idx, tema_actual)
-
+        #temas.imprimir_temas()
         return temas
 
     def ordenar_encuestados_temas_preguntas(self):
         resultado_encuestados = self.participantes.merge_sort()
         resultado_temas = self.temas.merge_sort()
         resultado_temas.ordenar_todos_las_preguntas()
+
+
+        print("Resultados temas")
+        resultado_temas.imprimir_temas()
 
         return resultado_encuestados, resultado_temas
         #resultado.imprimir_izquierda_a_derecha()
@@ -241,7 +248,7 @@ class DoubleListBasedSurvey:
 
 if __name__ == '__main__':
     algo_lista = DoubleListBasedSurvey()
-    archivo_prueba = "testsfiles/entrada_prueba_3.txt"
+    archivo_prueba = "testsfiles/entrada_prueba_1.txt"
     #participantes, temas = algo_lista.cargar_datos(archivo_prueba)
 
     # Ordenar preguntas y temas

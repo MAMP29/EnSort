@@ -1,5 +1,5 @@
-from datastructures.doublyl_linked_list.ls_encuestados import ListaEncuestados
-#from ls_encuestados import ListaEncuestados
+from sorting_logic.datastructures.doublyl_linked_list.ls_encuestados import ListaEncuestados
+#from datastructures.doublyl_linked_list.ls_encuestados import ListaEncuestados
 
 class NodoPregunta:
     def __init__(self, id_pregunta, lista_encuestados):

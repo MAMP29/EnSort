@@ -1,7 +1,7 @@
-from datastructures.doublyl_linked_list.ls_preguntas import ListaPreguntas
-from datastructures.doublyl_linked_list.ls_encuestados import ListaEncuestados
-#from ls_preguntas import ListaPreguntas
-#from ls_encuestados import ListaEncuestados
+from sorting_logic.datastructures.doublyl_linked_list.ls_preguntas import ListaPreguntas
+from sorting_logic.datastructures.doublyl_linked_list.ls_encuestados import ListaEncuestados
+#from datastructures.doublyl_linked_list.ls_preguntas import ListaPreguntas
+#from datastructures.doublyl_linked_list.ls_encuestados import ListaEncuestados
 
 class NodoTema:
     def __init__(self, id_tema, listaPreguntas):
@@ -196,6 +196,8 @@ class ListaTemas:
             # Obtenemos el extremo de la pregunta actual en el tema
             pregunta_actual = actual.preguntas.obtener_pregunta_extrema(criterio, mayor)
             
+            #print("SI HAY PREGUNTA ACTUAL: ", pregunta_actual)
+
             valor = obtener_valor(pregunta_actual, criterio)
 
             # Si es la primera vez o el valor es mejor según el criterio, actualizamos el extremo
