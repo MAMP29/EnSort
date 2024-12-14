@@ -9,6 +9,16 @@ class NodoTema:
         self.siguiente = None
         self.anterior = None
 
+        def calcular_promedio_opinion_total(self):
+            return self.preguntas.calcular_promedio_opinion_total()
+
+        def calcular_promedio_experticia_total(self):
+            return self.preguntas.calcular_promedio_experticia_total()
+
+        def contar_encuestados_total(self):
+            return self.preguntas.contar_encuestados_todos()
+        
+
     # Método para imprimir el tema y sus preguntas
     def imprimir_tema(self):
         print(f"Tema ID: {self.id_tema}")
@@ -82,7 +92,7 @@ class ListaTemas:
             if (promedio_opinion_izq > promedio_opinion_der or
                 (promedio_opinion_izq == promedio_opinion_der and promedio_experticia_izq > promedio_experticia_der) or
                 (promedio_opinion_izq == promedio_opinion_der and promedio_experticia_izq == promedio_experticia_der and
-                 actual_izquierda.contar_encuestados() > actual_derecha.contar_encuestados())):
+                 actual_izquierda.contar_encuestados_total() > actual_derecha.contar_encuestados_total())):
                 resultado.insertar_nodo_directo(actual_izquierda)
                 actual_izquierda = actual_izquierda.siguiente
             else:
@@ -124,6 +134,15 @@ class ListaTemas:
 
         return mitad
     
+    def ordenar_todos_las_preguntas(self):
+        actual = self.cabeza
+        while actual:
+            if actual.preguntas:
+                actual.preguntas = actual.preguntas.merge_sort()
+                actual.preguntas = actual.preguntas.ordenar_encuestados_nodos()  # Asegúrate de devolver la lista ordenada
+            actual = actual.siguiente
+        return self
+
     '''
     def calcular_promedio_opinion(self):
         if not self.cabeza:
@@ -233,4 +252,11 @@ if __name__ == '__main__':
     temas.insertar(1, preguntas_tema_1)
     temas.insertar(2, preguntas_tema_2)
 
-    temas.imprimir_temas()
+    #temas.imprimir_temas()
+
+    resultado = temas.merge_sort()
+
+    resultado.ordenar_todos_las_preguntas()
+
+    resultado.imprimir_temas()
+
