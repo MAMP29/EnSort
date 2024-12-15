@@ -162,7 +162,6 @@ class ResultsPanel(ft.Container):
 
     def obtain_output(self):
         if self.execution is not None:
-            #print("EL CONTENIDO " , self.execution.content)
             self.listas_diccionarios = self.execution.content.get('Listas-diccionarios', {}).get('salida', None)
             self.arbol_binario_busqueda = self.execution.content.get('Arbol Binario de Busqueda', {}).get('salida', None)
             self.listas_doblemente_enlazadas = self.execution.content.get('Listas doblemente enlazadas', {}).get('salida', None)
@@ -171,7 +170,6 @@ class ResultsPanel(ft.Container):
 
     def view_for_content(self):
         if self.execution is not None:
-            #print("EL CONTENIDO " , self.execution.content)
 
             if self.listas_diccionarios is not None:
                 self.btn_lst_dic.disabled = False
@@ -188,7 +186,6 @@ class ResultsPanel(ft.Container):
 
     def change_content_to_lst(self, e):
         # Actualizar el contenido del markdown
-        print(self.listas_diccionarios)
 
         formatted_text = self.listas_diccionarios
 
@@ -289,7 +286,6 @@ class ResultsPanel(ft.Container):
         valor.append("")
         valor.append(str(self.texto_entradas))
 
-        print("A DESCARGAR", valor)
 
         # Convertir la lista en una cadena de texto separada por saltos de línea
         contenido = "\n".join(valor)

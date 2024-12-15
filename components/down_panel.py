@@ -153,7 +153,6 @@ class DownPanel(ft.Container):
                     "tiempo_ejecucion": round(tiempo_fin_lst - tiempo_inicio_lst, 4)
                 }
 
-                print(salida_lst)
                 print("---------------------------------------------------------")
 
             if self.binary_tree_chip.is_selected == True:
@@ -169,7 +168,6 @@ class DownPanel(ft.Container):
                     "tiempo_ejecucion": round(tiempo_fin_bst - tiempo_inicio_bst, 4)
                 }
 
-                print(salida_bst)
                 print("---------------------------------------------------------")
 
             if self.doubly_list_chip.is_selected == True:
@@ -200,9 +198,6 @@ class DownPanel(ft.Container):
                 **{alg: resultados[alg]["tiempo_ejecucion"] for alg in resultados}
             }
             
-            print("Tiempos de ejecución:", ejecucion.tiempos_de_ejecucion)
-
-            print("NOMbre ejecucion:", ejecucion.nombre)
             #result_button = ResultExcutionButton(execution=ejecucion, color=ft.colors.BLACK)
 
             #self.page.controls[0].controls[0].add_results_button(result_button)
