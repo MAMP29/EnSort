@@ -14,7 +14,7 @@ def pick_file_result(e: ft.FilePickerResultEvent, exec_panel):
         print(f"Archivo seleccionado: {selected_file_name}")
         
         # Leer el contenido del archivo y pasarlo al ExecPanel
-        with open(selected_file_path, 'r') as f:
+        with open(selected_file_path, 'r', encoding='utf-8') as f:
             file_content = f.read().strip()  # Lee el contenido del archivo
 
         # Pasar el contenido a ExecPanel para que lo procese

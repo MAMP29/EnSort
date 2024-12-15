@@ -18,7 +18,7 @@ class ListBasedSurvey:
     def cargar_datos(self, contenido, con_archivo, participantes_raw, temas_preguntas_raw):
         # Leer el archivo y separar secciones
         if con_archivo:
-            with open(contenido, 'r') as f:
+            with open(contenido, 'r', encoding='utf-8') as f:
                 contenido = f.read().strip()
         
             # Separar secciones por doble salto de línea

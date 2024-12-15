@@ -18,7 +18,6 @@ class ResultsPanel(ft.Container):
 
         ---
 
-        - **Gráficos:** Información visual sobre los datos.
         - **Detalles:** Información detallada de cada ejecución.
                                 
         Selecciona uno de los botones para visualizar los resultados de la ejecución correspondiente.
@@ -290,6 +289,6 @@ class ResultsPanel(ft.Container):
         # Convertir la lista en una cadena de texto separada por saltos de línea
         contenido = "\n".join(valor)
 
-        with open(f"{self.execution.nombre}_{self.execution.id_ejecucion}.txt", "w") as f:
+        with open(f"{self.execution.nombre}_{self.execution.id_ejecucion}.txt", "w", encoding='utf-8') as f:
             f.write(contenido)
        
