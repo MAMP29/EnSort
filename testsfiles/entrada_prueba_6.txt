@@ -1,0 +1,305 @@
+Sofía García, Experticia: 1, Opinión: 6
+Alejandro Torres, Experticia: 7, Opinión: 10
+Valentina Rodríguez, Experticia: 9, Opinión: 0
+Juan López, Experticia: 10, Opinión: 1
+Martina Martínez, Experticia: 7, Opinión: 0
+Sebastián Pérez, Experticia: 8, Opinión: 9
+Camila Fernández, Experticia: 2, Opinión: 7
+Mateo González, Experticia: 4, Opinión: 7
+Isabella Díaz, Experticia: 7, Opinión: 5
+Daniel Ruiz, Experticia: 2, Opinión: 9
+Luciana Sánchez, Experticia: 1, Opinión: 7
+Lucas Vásquez, Experticia: 6, Opinión: 8
+Carlos Sánchez, Experticia: 3, Opinión: 4
+Mariana Gómez, Experticia: 5, Opinión: 9
+David Pérez, Experticia: 8, Opinión: 6
+Laura Hernández, Experticia: 7, Opinión: 3
+Javier López, Experticia: 2, Opinión: 8
+Olivia Martínez, Experticia: 4, Opinión: 7
+Diego Fernández, Experticia: 6, Opinión: 5
+Raquel Ruiz, Experticia: 9, Opinión: 1
+Fernando Rodríguez, Experticia: 3, Opinión: 10
+Ana García, Experticia: 7, Opinión: 4
+Roberto Díaz, Experticia: 5, Opinión: 2
+Patricia Torres, Experticia: 1, Opinión: 6
+Eduardo Morales, Experticia: 6, Opinión: 8
+Natalia López, Experticia: 4, Opinión: 10
+Ricardo Martínez, Experticia: 9, Opinión: 3
+Marta González, Experticia: 3, Opinión: 5
+Héctor Pérez, Experticia: 7, Opinión: 9
+María Hernández, Experticia: 10, Opinión: 0
+Felipe Ruiz, Experticia: 8, Opinión: 2
+Lucía Torres, Experticia: 5, Opinión: 4
+Gerardo Fernández, Experticia: 2, Opinión: 7
+Cristina Sánchez, Experticia: 1, Opinión: 10
+Tomás García, Experticia: 6, Opinión: 3
+Victoria Pérez, Experticia: 3, Opinión: 6
+Jorge Díaz, Experticia: 7, Opinión: 1
+Antonio López, Experticia: 8, Opinión: 4
+Pablo Martínez, Experticia: 4, Opinión: 8
+Elena Rodríguez, Experticia: 5, Opinión: 9
+Samuel Ruiz, Experticia: 2, Opinión: 6
+Gabriela Torres, Experticia: 1, Opinión: 9
+Ricardo Díaz, Experticia: 6, Opinión: 5
+Patricia Sánchez, Experticia: 7, Opinión: 3
+Emilia González, Experticia: 9, Opinión: 0
+Lucas Fernández, Experticia: 3, Opinión: 7
+Lidia Pérez, Experticia: 8, Opinión: 6
+Santiago López, Experticia: 10, Opinión: 1
+Mariana Díaz, Experticia: 4, Opinión: 5
+Fernando Torres, Experticia: 6, Opinión: 9
+Esteban Ruiz, Experticia: 7, Opinión: 4
+Juliana Martínez, Experticia: 5, Opinión: 2
+Manuel Pérez, Experticia: 9, Opinión: 3
+Fabiola Sánchez, Experticia: 3, Opinión: 8
+Héctor Ruiz, Experticia: 6, Opinión: 7
+Mónica Fernández, Experticia: 8, Opinión: 1
+José García, Experticia: 2, Opinión: 9
+Carla Rodríguez, Experticia: 4, Opinión: 7
+Víctor Torres, Experticia: 7, Opinión: 5
+Miguel Hernández, Experticia: 10, Opinión: 2
+Claudia Martínez, Experticia: 5, Opinión: 8
+Ricardo Sánchez, Experticia: 3, Opinión: 10
+Lourdes Pérez, Experticia: 8, Opinión: 6
+Sofía Romero, Experticia: 4, Opinión: 6
+Julio Álvarez, Experticia: 9, Opinión: 2
+Clara Jiménez, Experticia: 8, Opinión: 7
+Ricardo Navarro, Experticia: 5, Opinión: 3
+Gabriela Ruiz, Experticia: 10, Opinión: 4
+Héctor Rodríguez, Experticia: 6, Opinión: 8
+Valentina Díaz, Experticia: 7, Opinión: 6
+Pablo Torres, Experticia: 3, Opinión: 7
+Alba González, Experticia: 2, Opinión: 5
+Cristian Sánchez, Experticia: 8, Opinión: 9
+Santiago Pérez, Experticia: 4, Opinión: 2
+Mónica Ruiz, Experticia: 5, Opinión: 10
+Ángel Fernández, Experticia: 6, Opinión: 4
+Carolina López, Experticia: 9, Opinión: 8
+Mauricio García, Experticia: 1, Opinión: 9
+Jimena Hernández, Experticia: 8, Opinión: 5
+Ramón Rodríguez, Experticia: 3, Opinión: 3
+Raúl López, Experticia: 7, Opinión: 2
+Sara Pérez, Experticia: 2, Opinión: 4
+Esteban Torres, Experticia: 5, Opinión: 6
+Lucía Fernández, Experticia: 4, Opinión: 9
+Oscar Gómez, Experticia: 10, Opinión: 3
+Eva Sánchez, Experticia: 6, Opinión: 2
+Iván Martínez, Experticia: 9, Opinión: 5
+Nicolás Ruiz, Experticia: 3, Opinión: 9
+Lina Díaz, Experticia: 7, Opinión: 8
+Federico Sánchez, Experticia: 5, Opinión: 5
+Marcos Rodríguez, Experticia: 8, Opinión: 3
+Beatriz López, Experticia: 1, Opinión: 8
+César García, Experticia: 6, Opinión: 10
+Aurora Fernández, Experticia: 4, Opinión: 7
+Ricardo Pérez, Experticia: 9, Opinión: 4
+Germán Rodríguez, Experticia: 5, Opinión: 1
+Carlos Martínez, Experticia: 7, Opinión: 9
+Elena Ruiz, Experticia: 2, Opinión: 2
+Martín Sánchez, Experticia: 6, Opinión: 6
+Inés Torres, Experticia: 8, Opinión: 4
+Andrés González, Experticia: 3, Opinión: 10
+Tania López, Experticia: 9, Opinión: 7
+Carlos Gómez, Experticia: 4, Opinión: 3
+Alberto Vargas, Experticia: 5, Opinión: 7
+Carla Gómez, Experticia: 6, Opinión: 4
+Felipe Sánchez, Experticia: 2, Opinión: 10
+Pedro Pérez, Experticia: 9, Opinión: 6
+Silvia Rodríguez, Experticia: 8, Opinión: 2
+Miriam Torres, Experticia: 7, Opinión: 4
+Martín Pérez, Experticia: 4, Opinión: 1
+Diana Hernández, Experticia: 3, Opinión: 9
+Ricardo González, Experticia: 2, Opinión: 6
+Aída Fernández, Experticia: 9, Opinión: 3
+Nicolás Martínez, Experticia: 8, Opinión: 5
+Vanessa Ruiz, Experticia: 5, Opinión: 9
+Juan Carlos Torres, Experticia: 7, Opinión: 6
+Lorena Sánchez, Experticia: 4, Opinión: 3
+Iván Gómez, Experticia: 6, Opinión: 7
+Hugo Rodríguez, Experticia: 3, Opinión: 10
+Claudia Sánchez, Experticia: 2, Opinión: 4
+Roberto Ruiz, Experticia: 9, Opinión: 1
+Sara Martínez, Experticia: 6, Opinión: 9
+Andrés Pérez, Experticia: 5, Opinión: 5
+Manuel Rodríguez, Experticia: 3, Opinión: 2
+Laura López, Experticia: 7, Opinión: 5
+Jaime González, Experticia: 8, Opinión: 9
+Rosa Torres, Experticia: 6, Opinión: 8
+Patricia Martínez, Experticia: 2, Opinión: 5
+Armando Sánchez, Experticia: 4, Opinión: 10
+Teresa Ruiz, Experticia: 9, Opinión: 7
+Ramón Fernández, Experticia: 8, Opinión: 1
+Beatriz Pérez, Experticia: 3, Opinión: 8
+Raquel Díaz, Experticia: 7, Opinión: 4
+Iván Ruiz, Experticia: 5, Opinión: 6
+María José Gómez, Experticia: 6, Opinión: 5
+Alejandro Pérez, Experticia: 10, Opinión: 0
+Paula Rodríguez, Experticia: 2, Opinión: 8
+Vicente Sánchez, Experticia: 4, Opinión: 4
+Marta Pérez, Experticia: 7, Opinión: 9
+Samuel González, Experticia: 5, Opinión: 2
+José Luis Torres, Experticia: 9, Opinión: 0
+Roberto Fernández, Experticia: 8, Opinión: 7
+Carolina Rodríguez, Experticia: 6, Opinión: 6
+Sergio González, Experticia: 10, Opinión: 5
+Lourdes Martínez, Experticia: 7, Opinión: 1
+Fernando Ruiz, Experticia: 4, Opinión: 9
+Carla Pérez, Experticia: 5, Opinión: 3
+Sofía Rodríguez, Experticia: 6, Opinión: 10
+Lucía Martínez, Experticia: 7, Opinión: 2
+Gabriel Pérez, Experticia: 3, Opinión: 6
+Pablo Sánchez, Experticia: 9, Opinión: 4
+Elena Pérez, Experticia: 4, Opinión: 8
+Jorge Gómez, Experticia: 6, Opinión: 1
+Cristina Ruiz, Experticia: 8, Opinión: 9
+Sergio Martínez, Experticia: 5, Opinión: 10
+Martín Ruiz, Experticia: 6, Opinión: 3
+Javier Pérez, Experticia: 7, Opinión: 7
+Ignacio Rodríguez, Experticia: 3, Opinión: 4
+María González, Experticia: 10, Opinión: 6
+Francisco Ruiz, Experticia: 8, Opinión: 4
+Andrés Martínez, Experticia: 7, Opinión: 8
+Esteban Pérez, Experticia: 6, Opinión: 2
+Virginia Torres, Experticia: 9, Opinión: 5
+Diego Gómez, Experticia: 4, Opinión: 6
+Rafael Rodríguez, Experticia: 8, Opinión: 2
+Carmen Ruiz, Experticia: 6, Opinión: 3
+Gabriel Fernández, Experticia: 5, Opinión: 8
+Patricia Ruiz, Experticia: 9, Opinión: 2
+Mónica Pérez, Experticia: 4, Opinión: 10
+Isabel Gómez, Experticia: 3, Opinión: 5
+Tomás Fernández, Experticia: 6, Opinión: 9
+Rosario Sánchez, Experticia: 7, Opinión: 3
+Enrique Pérez, Experticia: 8, Opinión: 6
+Julia Rodríguez, Experticia: 5, Opinión: 1
+Felipe Díaz, Experticia: 6, Opinión: 5
+Teresa Pérez, Experticia: 2, Opinión: 7
+César Rodríguez, Experticia: 7, Opinión: 9
+Sonia Sánchez, Experticia: 8, Opinión: 3
+Raúl Fernández, Experticia: 5, Opinión: 4
+Eduardo Rodríguez, Experticia: 6, Opinión: 7
+Javier Gómez, Experticia: 2, Opinión: 10
+Beatriz Fernández, Experticia: 4, Opinión: 5
+Silvia Sánchez, Experticia: 7, Opinión: 10
+Antonio Ruiz, Experticia: 3, Opinión: 7
+Marta Ruiz, Experticia: 9, Opinión: 2
+Guillermo Fernández, Experticia: 5, Opinión: 7
+Fabiola Pérez, Experticia: 6, Opinión: 2
+Javier Ruiz, Experticia: 8, Opinión: 8
+Lourdes Gómez, Experticia: 10, Opinión: 3
+Ramón Pérez, Experticia: 7, Opinión: 2
+Teresa González, Experticia: 3, Opinión: 4
+Gloria Fernández, Experticia: 4, Opinión: 6
+Alfonso Sánchez, Experticia: 8, Opinión: 7
+Iván Pérez, Experticia: 9, Opinión: 8
+Clara González, Experticia: 7, Opinión: 4
+David Ruiz, Experticia: 2, Opinión: 3
+Carmen Pérez, Experticia: 4, Opinión: 7
+Julio Gómez, Experticia: 5, Opinión: 10
+Sonia Ruiz, Experticia: 6, Opinión: 9
+Javier Rodríguez, Experticia: 3, Opinión: 6
+Raquel Pérez, Experticia: 2, Opinión: 4
+Álvaro Sánchez, Experticia: 8, Opinión: 1
+Olga Rodríguez, Experticia: 7, Opinión: 5
+
+
+{1, 33, 12}
+{29, 97, 158}
+{6, 134, 28}
+
+
+{44, 50, 72}
+{88, 150, 192, 199}
+{102, 77, 41}
+{13, 54, 109}
+
+
+{15, 116, 143, 197}
+{185, 91, 56}
+{39, 61, 11}
+
+
+{164, 99, 19, 191}
+{171, 30, 8}
+
+
+{157, 25, 122, 194}
+
+
+{43, 67, 113}
+{81, 145}
+{142, 74, 170}
+{78, 100, 3}
+
+
+{84, 63, 180}
+{48, 175, 9}
+{65, 152, 60, 200}
+
+
+{23, 118, 35, 198}
+{66, 46, 179}
+
+
+{18, 103, 105}
+{58, 38, 127}
+
+
+{195, 136, 55}
+{89, 172}
+
+
+{62, 112, 5}
+{166, 174, 140}
+
+
+{86, 121, 159}
+{149, 98, 131}
+
+
+{160, 169, 95}
+{101, 151, 37}
+{24, 126, 2}
+
+
+{73, 47, 161}
+{110, 187, 168}
+
+
+{41, 145, 36, 193, 196}
+{117, 14, 22}
+
+
+{177, 132, 57}
+{16, 104, 93}
+{128, 175, 181}
+
+
+{71, 80}
+{49, 64, 20, 59}
+
+
+{141, 90, 114, 135}
+{125, 189, 75}
+
+
+{103, 162, 133}
+{140, 92, 165, 188, 188}
+
+
+{130, 130, 155, 45, 85}
+{156, 153, 68}
+
+
+{118, 115, 19, 194}
+{39, 53, 10, 106, 144}
+{154, 111, 79, 27}
+
+
+{96, 52, 94, 42}
+{163, 108, 124}
+
+
+{167, 21, 69, 190, 26}
+
+

@@ -1,0 +1,366 @@
+Resultado de la encuesta:
+
+
+
+[7.08] Tema 8:
+
+ [8.67] Pregunta 8.2: (21, 77, 54)
+
+ [5.50] Pregunta 8.1: (66, 99, 43, 68)
+
+
+
+[6.71] Tema 1:
+
+ [7.67] Pregunta 1.1: (57, 94, 18)
+
+ [5.75] Pregunta 1.2: (42, 17, 63, 5)
+
+
+
+[6.50] Tema 12:
+
+ [9.33] Pregunta 12.1: (93, 29, 10)
+
+ [3.67] Pregunta 12.2: (38, 51, 67)
+
+
+
+[6.22] Tema 9:
+
+ [7.33] Pregunta 9.2: (62, 25, 100)
+
+ [6.33] Pregunta 9.1: (7, 33, 9)
+
+ [5.00] Pregunta 9.3: (34, 32, 4)
+
+
+
+[5.83] Tema 4:
+
+ [7.33] Pregunta 4.1: (73, 11, 41)
+
+ [4.33] Pregunta 4.2: (88, 22, 30)
+
+
+
+[5.67] Tema 11:
+
+ [6.33] Pregunta 11.1: (40, 78, 56)
+
+ [5.00] Pregunta 11.2: (12, 13, 85)
+
+
+
+[5.67] Tema 5:
+
+ [7.33] Pregunta 5.1: (97, 55, 24)
+
+ [4.00] Pregunta 5.2: (36, 59, 20)
+
+
+
+[5.50] Tema 2:
+
+ [8.67] Pregunta 2.1: (50, 84, 92)
+
+ [2.33] Pregunta 2.2: (16, 65, 31)
+
+
+
+[5.33] Tema 10:
+
+ [5.67] Pregunta 10.2: (26, 82, 53)
+
+ [5.00] Pregunta 10.1: (46, 70, 81)
+
+
+
+[5.11] Tema 6:
+
+ [7.33] Pregunta 6.2: (2, 58, 28)
+
+ [5.00] Pregunta 6.3: (69, 72, 98)
+
+ [3.00] Pregunta 6.1: (83, 3)
+
+
+
+[5.00] Tema 7:
+
+ [5.67] Pregunta 7.1: (15, 47, 79)
+
+ [4.33] Pregunta 7.2: (61, 76, 48)
+
+
+
+[5.00] Tema 3:
+
+ [6.00] Pregunta 3.3: (8, 64, 49)
+
+ [5.00] Pregunta 3.2: (6, 95, 60)
+
+ [4.00] Pregunta 3.1: (71, 80, 23)
+
+
+
+[4.25] Tema 13:
+
+ [4.50] Pregunta 13.1: (75, 14, 91, 35, 52, 45)
+
+ [4.00] Pregunta 13.2: (102, 90, 27, 44, 74)
+
+
+
+[4.25] Tema 14:
+
+ [4.25] Pregunta 14.1: (39, 19, 103, 37)
+
+
+
+
+
+Lista encuestados:
+
+ (85, Nombre: 'Oscar Gómez', Experticia: 10, Opinión: 3)
+
+ (68, Nombre: 'Gabriela Ruiz', Experticia: 10, Opinión: 4)
+
+ (60, Nombre: 'Miguel Hernández', Experticia: 10, Opinión: 2)
+
+ (48, Nombre: 'Santiago López', Experticia: 10, Opinión: 1)
+
+ (30, Nombre: 'María Hernández', Experticia: 10, Opinión: 0)
+
+ (4, Nombre: 'Juan López', Experticia: 10, Opinión: 1)
+
+ (102, Nombre: 'Tania López', Experticia: 9, Opinión: 7)
+
+ (95, Nombre: 'Ricardo Pérez', Experticia: 9, Opinión: 4)
+
+ (87, Nombre: 'Iván Martínez', Experticia: 9, Opinión: 5)
+
+ (77, Nombre: 'Carolina López', Experticia: 9, Opinión: 8)
+
+ (65, Nombre: 'Julio Álvarez', Experticia: 9, Opinión: 2)
+
+ (53, Nombre: 'Manuel Pérez', Experticia: 9, Opinión: 3)
+
+ (45, Nombre: 'Emilia González', Experticia: 9, Opinión: 0)
+
+ (27, Nombre: 'Ricardo Martínez', Experticia: 9, Opinión: 3)
+
+ (20, Nombre: 'Raquel Ruiz', Experticia: 9, Opinión: 1)
+
+ (3, Nombre: 'Valentina Rodríguez', Experticia: 9, Opinión: 0)
+
+ (100, Nombre: 'Inés Torres', Experticia: 8, Opinión: 4)
+
+ (91, Nombre: 'Marcos Rodríguez', Experticia: 8, Opinión: 3)
+
+ (79, Nombre: 'Jimena Hernández', Experticia: 8, Opinión: 5)
+
+ (73, Nombre: 'Cristian Sánchez', Experticia: 8, Opinión: 9)
+
+ (66, Nombre: 'Clara Jiménez', Experticia: 8, Opinión: 7)
+
+ (63, Nombre: 'Lourdes Pérez', Experticia: 8, Opinión: 6)
+
+ (56, Nombre: 'Mónica Fernández', Experticia: 8, Opinión: 1)
+
+ (47, Nombre: 'Lidia Pérez', Experticia: 8, Opinión: 6)
+
+ (38, Nombre: 'Antonio López', Experticia: 8, Opinión: 4)
+
+ (31, Nombre: 'Felipe Ruiz', Experticia: 8, Opinión: 2)
+
+ (15, Nombre: 'David Pérez', Experticia: 8, Opinión: 6)
+
+ (6, Nombre: 'Sebastián Pérez', Experticia: 8, Opinión: 9)
+
+ (97, Nombre: 'Carlos Martínez', Experticia: 7, Opinión: 9)
+
+ (89, Nombre: 'Lina Díaz', Experticia: 7, Opinión: 8)
+
+ (81, Nombre: 'Raúl López', Experticia: 7, Opinión: 2)
+
+ (70, Nombre: 'Valentina Díaz', Experticia: 7, Opinión: 6)
+
+ (59, Nombre: 'Víctor Torres', Experticia: 7, Opinión: 5)
+
+ (51, Nombre: 'Esteban Ruiz', Experticia: 7, Opinión: 4)
+
+ (44, Nombre: 'Patricia Sánchez', Experticia: 7, Opinión: 3)
+
+ (37, Nombre: 'Jorge Díaz', Experticia: 7, Opinión: 1)
+
+ (29, Nombre: 'Héctor Pérez', Experticia: 7, Opinión: 9)
+
+ (22, Nombre: 'Ana García', Experticia: 7, Opinión: 4)
+
+ (16, Nombre: 'Laura Hernández', Experticia: 7, Opinión: 3)
+
+ (9, Nombre: 'Isabella Díaz', Experticia: 7, Opinión: 5)
+
+ (5, Nombre: 'Martina Martínez', Experticia: 7, Opinión: 0)
+
+ (2, Nombre: 'Alejandro Torres', Experticia: 7, Opinión: 10)
+
+ (99, Nombre: 'Martín Sánchez', Experticia: 6, Opinión: 6)
+
+ (93, Nombre: 'César García', Experticia: 6, Opinión: 10)
+
+ (86, Nombre: 'Eva Sánchez', Experticia: 6, Opinión: 2)
+
+ (76, Nombre: 'Ángel Fernández', Experticia: 6, Opinión: 4)
+
+ (69, Nombre: 'Héctor Rodríguez', Experticia: 6, Opinión: 8)
+
+ (55, Nombre: 'Héctor Ruiz', Experticia: 6, Opinión: 7)
+
+ (50, Nombre: 'Fernando Torres', Experticia: 6, Opinión: 9)
+
+ (43, Nombre: 'Ricardo Díaz', Experticia: 6, Opinión: 5)
+
+ (35, Nombre: 'Tomás García', Experticia: 6, Opinión: 3)
+
+ (25, Nombre: 'Eduardo Morales', Experticia: 6, Opinión: 8)
+
+ (19, Nombre: 'Diego Fernández', Experticia: 6, Opinión: 5)
+
+ (12, Nombre: 'Lucas Vásquez', Experticia: 6, Opinión: 8)
+
+ (96, Nombre: 'Germán Rodríguez', Experticia: 5, Opinión: 1)
+
+ (90, Nombre: 'Federico Sánchez', Experticia: 5, Opinión: 5)
+
+ (83, Nombre: 'Esteban Torres', Experticia: 5, Opinión: 6)
+
+ (75, Nombre: 'Mónica Ruiz', Experticia: 5, Opinión: 10)
+
+ (67, Nombre: 'Ricardo Navarro', Experticia: 5, Opinión: 3)
+
+ (61, Nombre: 'Claudia Martínez', Experticia: 5, Opinión: 8)
+
+ (52, Nombre: 'Juliana Martínez', Experticia: 5, Opinión: 2)
+
+ (40, Nombre: 'Elena Rodríguez', Experticia: 5, Opinión: 9)
+
+ (32, Nombre: 'Lucía Torres', Experticia: 5, Opinión: 4)
+
+ (23, Nombre: 'Roberto Díaz', Experticia: 5, Opinión: 2)
+
+ (14, Nombre: 'Mariana Gómez', Experticia: 5, Opinión: 9)
+
+ (103, Nombre: 'Carlos Gómez', Experticia: 4, Opinión: 3)
+
+ (94, Nombre: 'Aurora Fernández', Experticia: 4, Opinión: 7)
+
+ (84, Nombre: 'Lucía Fernández', Experticia: 4, Opinión: 9)
+
+ (74, Nombre: 'Santiago Pérez', Experticia: 4, Opinión: 2)
+
+ (64, Nombre: 'Sofía Romero', Experticia: 4, Opinión: 6)
+
+ (58, Nombre: 'Carla Rodríguez', Experticia: 4, Opinión: 7)
+
+ (49, Nombre: 'Mariana Díaz', Experticia: 4, Opinión: 5)
+
+ (39, Nombre: 'Pablo Martínez', Experticia: 4, Opinión: 8)
+
+ (26, Nombre: 'Natalia López', Experticia: 4, Opinión: 10)
+
+ (18, Nombre: 'Olivia Martínez', Experticia: 4, Opinión: 7)
+
+ (8, Nombre: 'Mateo González', Experticia: 4, Opinión: 7)
+
+ (101, Nombre: 'Andrés González', Experticia: 3, Opinión: 10)
+
+ (88, Nombre: 'Nicolás Ruiz', Experticia: 3, Opinión: 9)
+
+ (80, Nombre: 'Ramón Rodríguez', Experticia: 3, Opinión: 3)
+
+ (71, Nombre: 'Pablo Torres', Experticia: 3, Opinión: 7)
+
+ (62, Nombre: 'Ricardo Sánchez', Experticia: 3, Opinión: 10)
+
+ (54, Nombre: 'Fabiola Sánchez', Experticia: 3, Opinión: 8)
+
+ (46, Nombre: 'Lucas Fernández', Experticia: 3, Opinión: 7)
+
+ (36, Nombre: 'Victoria Pérez', Experticia: 3, Opinión: 6)
+
+ (28, Nombre: 'Marta González', Experticia: 3, Opinión: 5)
+
+ (21, Nombre: 'Fernando Rodríguez', Experticia: 3, Opinión: 10)
+
+ (13, Nombre: 'Carlos Sánchez', Experticia: 3, Opinión: 4)
+
+ (98, Nombre: 'Elena Ruiz', Experticia: 2, Opinión: 2)
+
+ (82, Nombre: 'Sara Pérez', Experticia: 2, Opinión: 4)
+
+ (72, Nombre: 'Alba González', Experticia: 2, Opinión: 5)
+
+ (57, Nombre: 'José García', Experticia: 2, Opinión: 9)
+
+ (41, Nombre: 'Samuel Ruiz', Experticia: 2, Opinión: 6)
+
+ (33, Nombre: 'Gerardo Fernández', Experticia: 2, Opinión: 7)
+
+ (17, Nombre: 'Javier López', Experticia: 2, Opinión: 8)
+
+ (10, Nombre: 'Daniel Ruiz', Experticia: 2, Opinión: 9)
+
+ (7, Nombre: 'Camila Fernández', Experticia: 2, Opinión: 7)
+
+ (92, Nombre: 'Beatriz López', Experticia: 1, Opinión: 8)
+
+ (78, Nombre: 'Mauricio García', Experticia: 1, Opinión: 9)
+
+ (42, Nombre: 'Gabriela Torres', Experticia: 1, Opinión: 9)
+
+ (34, Nombre: 'Cristina Sánchez', Experticia: 1, Opinión: 10)
+
+ (24, Nombre: 'Patricia Torres', Experticia: 1, Opinión: 6)
+
+ (11, Nombre: 'Luciana Sánchez', Experticia: 1, Opinión: 7)
+
+ (1, Nombre: 'Sofía García', Experticia: 1, Opinión: 6)
+
+
+
+
+
+Resultados:
+
+  Pregunta con mayor promedio de opinion: [9.33] Pregunta: 12.1
+
+  Pregunta con menor promedio de opinion: [2.33] Pregunta: 2.2
+
+  Pregunta con mayor promedio de experticia: [9.00] Pregunta: 3.2
+
+  Pregunta con menor promedio de experticia: [3.33] Pregunta: 1.1
+
+  Encuestado con mayor opinion: (2, Nombre:'Alejandro Torres', Experticia:7, Opinión:10)
+
+  Encuestado con menor opinion: (30, Nombre:'María Hernández', Experticia:10, Opinión:0)
+
+  Encuestado con mayor experticia: (85, Nombre:'Oscar Gómez', Experticia:10, Opinión:3)
+
+  Encuestado con menor experticia: (92, Nombre:'Beatriz López', Experticia:1, Opinión:8)
+
+  Promedio de experticia de los encuestados: 5.56
+
+  Promedio de opinion de los encuestados: 5.54
+
+Tiempo general: 0.1165 
+ Tiempo tamaño entrada 0.0012 
+ Tiempo listas-diccionarios: 0.0073 
+ Tiempo BST: 0.0685 
+ Tiempo Listas doblemente enlazadas: 0.0306
+
+Tamaño total: 147 
+ Participantes: 103 
+ Preguntas: 30 
+ Temas: 14

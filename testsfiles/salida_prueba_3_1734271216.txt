@@ -1,0 +1,23 @@
+
+# Este es un ejemplo de un panel de resultados 
+
+Aquí podrás ver los resultados de tus ejecuciones. Cada ejecución tiene su información respectiva, esta se cargará sobre el panel junto a sus gráficos y demás información para que puedas verlas.
+
+---
+
+- **Gráficos:** Información visual sobre los datos.
+- **Detalles:** Información detallada de cada ejecución.
+
+Selecciona uno de los botones para visualizar los resultados de la ejecución correspondiente.
+
+
+Tiempo general: 0.0268 
+ Tiempo tamaño entrada 0.0009 
+ Tiempo listas-diccionarios: 0.0019 
+ Tiempo BST: 0.0116 
+ Tiempo Listas doblemente enlazadas: 0.0066
+
+Tamaño total: 52 
+ Participantes: 40 
+ Preguntas: 9 
+ Temas: 3

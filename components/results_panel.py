@@ -264,7 +264,7 @@ class ResultsPanel(ft.Container):
 
 
             # Concatenar todo en un solo string
-            self.texto_tiempos = f"Tiempo general: {tiempo_general} \n Tiempo tamaño entrada {tiempo_tamaño_entrada} \n Tiempo listas-diccionarios: {tiempo_listas_diccionarios} \n Tiempo BST: {tiempo_bst} \n Tiempo Listas doblemente enlazadas: {tiempo_listas_doblemente_enlazadas}"
+            self.texto_tiempos = f"Tiempo general: {tiempo_general} \n Tiempo tamaño entrada: {tiempo_tamaño_entrada} \n Tiempo listas-diccionarios: {tiempo_listas_diccionarios} \n Tiempo BST: {tiempo_bst} \n Tiempo Listas doblemente enlazadas: {tiempo_listas_doblemente_enlazadas}"
 
             self.texto_entradas = f"Tamaño total: {tamano_entrada_total} \n Participantes: {tamano_entrada_participantes} \n Preguntas: {tamano_entrada_preguntas} \n Temas: {tamano_entrada_temas}"
 

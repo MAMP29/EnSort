@@ -93,7 +93,7 @@ class ListaTemas:
             if (promedio_opinion_izq > promedio_opinion_der or
                 (promedio_opinion_izq == promedio_opinion_der and promedio_experticia_izq > promedio_experticia_der) or
                 (promedio_opinion_izq == promedio_opinion_der and promedio_experticia_izq == promedio_experticia_der and
-                 actual_izquierda.contar_encuestados_total() > actual_derecha.contar_encuestados_total())):
+                 actual_izquierda.contar_encuestados() > actual_derecha.contar_encuestados())):
                 resultado.insertar_nodo_directo(actual_izquierda)
                 actual_izquierda = actual_izquierda.siguiente
             else:
