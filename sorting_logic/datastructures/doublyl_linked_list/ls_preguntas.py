@@ -125,10 +125,6 @@ class ListaPreguntas:
             actual.imprimir_pregunta()
             actual = actual.siguiente
 
-    '''def calcular_promedio_opinion(self):
-        actual = self.cabeza
-        return actual.encuestados.calcular_promedio_opinion()'''
-
     def calcular_promedio_opinion_total(self):
         if not self.cabeza:
             return 0
@@ -141,10 +137,6 @@ class ListaPreguntas:
             actual = actual.siguiente
         return total_opinion / cantidad if cantidad > 0 else 0
 
-    '''def calcular_promedio_experticia(self):
-        actual = self.cabeza
-        return actual.encuestados.calcular_promedio_experticia()'''
-    
     def calcular_promedio_experticia_total(self):
         if not self.cabeza:
             return 0
@@ -174,12 +166,6 @@ class ListaPreguntas:
             actual = actual.siguiente
         return self
 
-
-    '''   
-    def contar_encuestados(self):
-        actual = self.cabeza
-        return actual.encuestados.contar_encuestados()
-    '''
 
     # Método para iterar sobre todos los temas y devolverlos
     def iterar_preguntas(self):

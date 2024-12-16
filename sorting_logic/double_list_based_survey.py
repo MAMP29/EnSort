@@ -18,10 +18,6 @@ class DoubleListBasedSurvey:
 
         self.participantes, self.temas = self.ordenar_encuestados_temas_preguntas()
 
-        #self.participantes.imprimir_izquierda_a_derecha()
-        #print("IMPRIMIENDO TEMAS")
-        #self.temas.imprimir_temas()
-
         return self.generar_resultados()
 
     def cargar_datos(self, contenido, con_archivo, participantes_raw, temas_preguntas_raw):
@@ -69,7 +65,6 @@ class DoubleListBasedSurvey:
         # Crear listas para preguntas y temas
         temas = ListaTemas()
 
-        print("LOS TEMAS RAW QUE ME LLEGAN", temas_preguntas_raw)
         for idx, tp in enumerate(temas_preguntas_raw, start=1):
             # Dividir la línea en tema y pregunta
             preguntas_raw = tp.strip().split("\n")

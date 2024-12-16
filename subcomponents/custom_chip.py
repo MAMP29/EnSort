@@ -20,8 +20,6 @@ class CustomChip(ft.Chip):
         # Cambiar el estado de seleccionado            
         self._is_selected = not self._is_selected
 
-        print(f"Estado actualizado: {self._is_selected}")
-
         # Actualizar los colores del chip dependiendo de su estado
         if self.is_selected:
             self.bgcolor = self.selected_color   # Color cuando está seleccionado

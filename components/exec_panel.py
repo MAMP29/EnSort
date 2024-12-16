@@ -22,7 +22,11 @@ class ExecPanel(ft.Container):
         self.content = ft.Column(
             controls=[
                 ft.Text("Panel de Ejecuciones"),
-                self.button_files,
+                ft.Container(
+                    content=self.button_files,
+                    alignment=ft.alignment.center,
+                    expand=True
+                ),
                 self.down_panel,
             ],
             alignment=ft.MainAxisAlignment.SPACE_BETWEEN,

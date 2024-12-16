@@ -133,9 +133,6 @@ class DownPanel(ft.Container):
 
         if self.file_content is not None:
             self.button_execution_mode()
-            print("List-dict esta: ", self.list_dict_chip.is_selected)
-            print("BST esta: ", self.binary_tree_chip.is_selected)
-            print("Doubly-list esta: ", self.doubly_list_chip.is_selected)
 
             # Resultados de los algoritmos
             resultados = {}
